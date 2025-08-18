@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Dentro de index.html -->
+    <a href="index-en.html">🌐 English</a>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NESGESFinance — Plataforma de Tokenización de Proyectos y RWA's</title>
+  <meta name="description" content="NESGESFinance: Ecosistema humanista de tokenización de Activos del Mundo Real (RWA), DeFi y DAO en Polygon. Proyectos, tecnología, gráficos, legales ampliados, FAQ y contacto." />
+  <meta name="theme-color" content="#0a0a0a" />
+  <meta property="og:title" content="NESGESFinance — Tokenización con Propósito" />
+  <meta property="og:description" content="Tecnología Blockchain, Inclusión Financiera y Sostenibilidad Humana como eje de un nuevo paradigma económico solidario." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_ES" />
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"NESGESFinance",
+    "url":"https://nesaraandgesarafinance.org",
+    "logo":"",
+    "sameAs":["https://x.com/nesgesfinance"],
+    "description":"Ecosistema humanista para tokenización de RWA's con impacto social y gobernanza DAO.",
+    "foundingDate":"2025",
+    "memberOf":{"@type":"Organization","name":"Polygon Ecosystem"}
+  }
+  </script>
+  <style>
+    :root{
+      --bg:#0b0e11; --panel:#12161a; --muted:#8aa0b3; --text:#e7eef6; --brand:#4ade80; --accent:#8b5cf6; --warn:#f59e0b; --danger:#ef4444; --line:#1f2937;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:linear-gradient(180deg,var(--bg),#0b0f13 30%, #0a0d11 100%);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;}
+    a{color:var(--brand);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:1200px;margin:0 auto;padding:24px}
+    header{position:sticky;top:0;backdrop-filter:saturate(140%) blur(10px);background:rgba(11,14,17,.6);border-bottom:1px solid var(--line);z-index:30}
+    nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800}
+    .brand-badge{width:40px;height:40px;border-radius:10px;background:conic-gradient(from 180deg at 50% 50%, var(--brand), var(--accent));display:grid;place-items:center;box-shadow:0 8px 30px rgba(74,222,128,.18)}
+    .brand-badge span{font-weight:900;color:#0b0e11}
+    .nav-links{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:8px 14px;border:1px solid var(--line);border-radius:10px;background:linear-gradient(180deg,#12161a,#0f1317);color:var(--text);cursor:pointer;font-size:14px}
+    .btn:hover{border-color:#2b3440}
+    .btn.primary{border-color:transparent;background:linear-gradient(180deg,var(--brand),#2dd4bf);color:#07130e;font-weight:700}
+
+    /* Layout */
+    .hero{padding:64px 0 36px;border-bottom:1px solid var(--line)}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:28px}
+    .kicker{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+    h1{font-size:40px;line-height:1.06;margin:10px 0 14px}
+    .subtitle{color:#c7d2de;max-width:65ch}
+    .statgrid{margin-top:20px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .stat{padding:12px;border:1px solid var(--line);border-radius:12px;background:linear-gradient(180deg,#11161a,#0e1216)}
+    .card{padding:18px;border:1px solid var(--line);border-radius:12px;background:linear-gradient(180deg,#10151a,#0f1317)}
+
+    section{padding:48px 0;border-bottom:1px solid var(--line)}
+    h2{font-size:26px;margin:0 0 12px}
+    p{line-height:1.6;color:#cfe2f7}
+    .grid{display:grid;gap:14px}
+    .grid.cols-2{grid-template-columns:repeat(2,1fr)}
+    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+    .meta{color:var(--muted);font-size:13px}
+
+    table{width:100%;border-collapse:separate;border-spacing:0 8px}
+    thead th{font-size:12px;text-transform:uppercase;color:var(--muted);text-align:left;padding:6px}
+    tbody tr{background:#0d1115;border:1px solid var(--line)}
+    tbody td{padding:10px}
+    .pill{padding:4px 8px;border-radius:999px;border:1px solid var(--line);font-size:12px}
+
+    .chart-card{padding:12px;border:1px solid var(--line);border-radius:12px;background:linear-gradient(180deg,#10151a,#0f1317)}
+    canvas{width:100%;height:240px;display:block}
+
+    .accordion{border:1px solid var(--line);border-radius:12px;overflow:hidden}
+    .acc-item{border-top:1px solid var(--line)}
+    .acc-btn{width:100%;text-align:left;padding:12px 14px;background:#0d1115;color:var(--text);font-weight:700;border:0;cursor:pointer}
+    .acc-panel{max-height:0;overflow:hidden;transition:max-height .28s ease;background:#0c1014;padding:0 14px}
+    .acc-panel.open{padding:14px}
+
+    footer{padding:28px 0;color:var(--muted)}
+    .badges{display:flex;gap:10px;flex-wrap:wrap}
+    .badge{padding:6px 10px;border-radius:999px;border:1px solid var(--line);background:#0c1014;color:#cfe2f7;font-size:12px}
+
+    /* Contact */
+    form label{display:block;font-size:13px;color:#cfe2f7;margin-bottom:6px}
+    form input, form textarea, form select{width:100%;padding:10px;border-radius:8px;border:1px solid var(--line);background:#0b0f13;color:var(--text)}
+    form .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    form .actions{display:flex;gap:10px;margin-top:12px}
+
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns:1fr}
+      .grid.cols-2,.grid.cols-3{grid-template-columns:1fr}
+      .statgrid{grid-template-columns:repeat(2,1fr)}
+      form .row{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="brand">
+          <div class="brand-badge"><span>NG</span></div>
+          <div>
+            NESGESFinance
+            <div style="font-size:12px;color:var(--muted)">Tokenización de Proyectos y RWA's</div>
+          </div>
+        </div>
+        <div class="nav-links">
+          <a href="#vision">Ecosistema</a>
+          <a href="#proyectos">Proyectos</a>
+          <a href="#tecnologia">Tecnología</a>
+          <a href="#tokenomics">Tokenomics</a>
+          <a href="#dao">DAO</a>
+          <a href="#legal">Legal</a>
+          <a href="#roadmap">Roadmap</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contacto">Contacto</a>
+          <button class="btn primary" id="btnConnect">Conectar Wallet</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-label="Introducción">
+      <div class="container hero-grid">
+        <div>
+          <div class="kicker">Blockchain • Inclusión Financiera • Sostenibilidad Humana</div>
+          <h1>Tokenización con propósito: <span style="background:linear-gradient(90deg,var(--brand),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent">RWA's</span> para transformar comunidades</h1>
+          <p class="subtitle">NESGESFinance es un ecosistema humanista que integra <strong>blockchain</strong>, <strong>DeFi</strong>, <strong>RWA's</strong> y <strong>DAO</strong> para canalizar capital hacia proyectos sociales, ambientales y tecnológicos con trazabilidad on‑chain.</p>
+          <div class="statgrid">
+            <div class="stat"><div class="meta">Red</div><b>Polygon PoS</b></div>
+            <div class="stat"><div class="meta">Token</div><b>$NESGES</b></div>
+            <div class="stat"><div class="meta">Contrato</div><b><code id="contractES">0x17f...45c4</code></b></div>
+            <div class="stat"><div class="meta">Wallet</div><b id="walletPreview">No conectada</b></div>
+          </div>
+          <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn" href="https://nesaraandgesarafinance.org" target="_blank" rel="noopener">Sitio Oficial</a>
+            <a class="btn" href="https://www.geckoterminal.com/polygon_pos/pools/0xe0e0050a18514a29d407acfdc69f742658e97b2d" target="_blank" rel="noopener">Pool NESGES</a>
+          </div>
+        </div>
+        <div class="card">
+          <h3 style="margin-top:0">Panel de actividad (demo)</h3>
+          <div class="grid cols-2">
+            <div>
+              <div class="meta">Proyectos activos</div>
+              <div><b id="kpiProjects">3</b></div>
+            </div>
+            <div>
+              <div class="meta">Fondos recaudados</div>
+              <div><b id="kpiFunds">$128,400</b></div>
+            </div>
+            <div>
+              <div class="meta">Holders</div>
+              <div><b id="kpiHolders">1,246</b></div>
+            </div>
+            <div>
+              <div class="meta">Impacto directo</div>
+              <div><b id="kpiImpact">412 beneficiarios</b></div>
+            </div>
+          </div>
+          <p class="meta" style="margin-top:8px">* Datos demo; listos para enlazar a oráculos/indexadores en producción.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="vision" aria-label="Visión">
+      <div class="container grid cols-2">
+        <div>
+          <h2>Visión general</h2>
+          <p>Devolvemos el valor a la comunidad mediante la tokenización de bienes, derechos y flujos productivos, priorizando proyectos que dignifiquen vidas y regeneren ecosistemas. Principios: transparencia on‑chain, gobernanza abierta y acceso inclusivo.</p>
+          <ul>
+            <li>Transparencia y trazabilidad total.</li>
+            <li>DAO para participación y control ciudadano.</li>
+            <li>Acceso global con barreras mínimas de entrada.</li>
+            <li>Alianzas para el bien común y la sostenibilidad.</li>
+          </ul>
+        </div>
+        <div>
+          <h2>Enfoque humanista</h2>
+          <p>Proyectos con impacto social real: prótesis 3D gratuitas, vivienda autosustentable, hidroponía comunitaria, reciclaje energético (plástico→combustible), energía fotovoltaica descentralizada, rescate animal, y tokenización inmobiliaria con impacto.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="proyectos" aria-label="Proyectos Tokenizados">
+      <div class="container">
+        <h2>Proyectos tokenizados</h2>
+        <p class="meta">Explora iniciativas RWA y de impacto socioambiental tokenizadas en Polygon.</p>
+        <div class="grid cols-2" style="align-items:end;margin-bottom:12px">
+          <div>
+            <label class="meta">Buscar</label>
+            <input id="search" placeholder="Nombre, país o tipo" />
+          </div>
+          <div>
+            <label class="meta">Filtrar por estado</label>
+            <select id="statusFilter">
+              <option value="all">Todos</option>
+              <option value="en curso">En curso</option>
+              <option value="completado">Completado</option>
+              <option value="próximo">Próximo</option>
+            </select>
+          </div>
+        </div>
+        <div class="card">
+          <table>
+            <thead>
+              <tr>
+                <th>Proyecto</th>
+                <th>País</th>
+                <th>Tipo</th>
+                <th>Meta</th>
+                <th>Recaudado</th>
+                <th>Estado</th>
+                <th>Acción</th>
+              </tr>
+            </thead>
+            <tbody id="projectBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="tokenomics" aria-label="Tokenomics">
+      <div class="container grid cols-2">
+        <div class="chart-card">
+          <h3 style="margin-top:0">Distribución de tokens (demo)</h3>
+          <canvas id="pieToken"></canvas>
+          <p class="meta">* Ajusta el arreglo <code>tokenomics</code> en el script para cambiar porcentajes.</p>
+        </div>
+        <div class="chart-card">
+          <h3 style="margin-top:0">Flujos de impacto vs retornos</h3>
+          <canvas id="barImpact"></canvas>
+          <p class="meta">* Visualización comparativa (ejemplo demo).</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="tecnologia" aria-label="Tecnología">
+      <div class="container grid cols-2">
+        <div>
+          <h2>Tecnología y arquitectura</h2>
+          <p>Basado en <strong>Polygon PoS</strong>, con contratos inteligentes, NFT de valor, oráculos y almacenamiento descentralizado (IPFS/Arweave). Preparado para integraciones con TheGraph/Subsquid para indexado y SSI para identidad selectiva.</p>
+          <ul>
+            <li>Transparencia y trazabilidad on‑chain.</li>
+            <li>Oráculos para evidencias y métricas off‑chain.</li>
+            <li>Integración con wallets EVM y estándares DID/VC.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 style="margin-top:0">Detalles on‑chain</h3>
+          <div class="grid cols-2">
+            <div><div class="meta">Token</div><b>$NESGES</b></div>
+            <div><div class="meta">Red</div><b>Polygon PoS</b></div>
+            <div><div class="meta">Contrato</div><code id="contractTech">0x17f6e4beb6cee9ff533ce102bc31f846f8e945c4</code></div>
+            <div><div class="meta">Pool</div><a href="https://www.geckoterminal.com/polygon_pos/pools/0xe0e0050a18514a29d407acfdc69f742658e97b2d" target="_blank" rel="noopener">GeckoTerminal</a></div>
+          </div>
+          <p class="meta" style="margin-top:10px">* En producción: enlazar a TheGraph, RPCs dedicadas y oráculos para métricas de RWA.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="dao" aria-label="DAO">
+      <div class="container grid cols-2">
+        <div>
+          <h2>Gobernanza descentralizada (DAO)</h2>
+          <p>La DAO NESGES permitirá a la comunidad proponer, debatir y votar proyectos. Módulo funcional de demostración listo para integrarse con un contrato de gobernanza (Governor).</p>
+          <div class="card">
+            <label class="meta">Nueva propuesta</label>
+            <input id="proposalTitle" placeholder="Ej. Financiar laboratorio de prótesis 3D" />
+            <textarea id="proposalDesc" rows="4" placeholder="Describe objetivo, KPIs, presupuesto y plazos" style="margin-top:8px"></textarea>
+            <div style="display:flex;gap:10px;margin-top:10px">
+              <button class="btn" id="btnSubmitProp">Someter propuesta</button>
+              <button class="btn" id="btnClearProp">Limpiar</button>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <h3 style="margin-top:0">Propuestas activas</h3>
+          <div id="proposalList" class="grid" style="gap:10px"></div>
+          <p class="meta" style="margin-top:8px">* Los votos se guardan en <code>localStorage</code> vinculados a la dirección de wallet (demo). Para producción integrar contrato de gobernanza.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="legal" aria-label="Marco legal">
+      <div class="container">
+        <h2>Marco Legal</h2>
+        <p class="meta">Resumen ampliado (no constituye asesoría legal). Los documentos ejecutables y los contratos inteligentes prevalecen sobre este texto.</p>
+        <div class="accordion" role="tablist" style="margin-top:14px">
+          <div class="acc-item"><button class="acc-btn">1) Términos de Uso</button><div class="acc-panel"><p>El sitio y sus funcionalidades Web3 se ofrecen “tal cual”. El uso implica aceptación de estos términos. Se prohíben actividades ilícitas, elusión de controles y uso por menores. El acceso puede suspenderse por mantenimiento o fuerza mayor.</p></div></div>
+          <div class="acc-item"><button class="acc-btn">2) Jurisdicción y Ley Aplicable</button><div class="acc-panel"><p>Salvo disposición específica de cada proyecto, la ley aplicable será determinada por la entidad emisora o el SPV correspondiente. En caso de disputa, las partes procurarán negociación de buena fe; en defecto, podrán optar por arbitraje institucional o tribunales competentes, conforme se establezca en el documento del proyecto.</p></div></div>
+          <div class="acc-item"><button class="acc-btn">3) Cumplimiento Regulatorio (MiCA / Howey‑friendly)</button><div class="acc-panel"><p>Se adopta un enfoque de clasificación de tokens y revelaciones acorde a MiCA cuando proceda, y se mitigan factores Howey (en EE. UU.) evitando promesas de rendimiento garantizado, estableciendo utilidades claras y, cuando aplica, limitando ofertas conforme a regulaciones como Reg D/Reg S.</p></div></div>
+          <div class="acc-item"><button class="acc-btn">4) KYC/AML y Sanciones</button><div class="acc-panel"><p>Los participantes podrán ser verificados por proveedores KYC externos certificados. Se incluye monitoreo AML, listas de sanciones y geofencing cuando aplique. El incumplimiento conlleva exclusión y comunicación a autoridades competentes.</p></div></div>
+          <div class="acc-item"><button class="acc-btn">5) Custodia, Oráculos y Evidencias</button><div class="acc-panel"><p>Los RWA pueden custodiarse vía SPV o custodios licenciados. Las pruebas de reservas y evidencias de impacto se anclan en IPFS/Arweave y se consumen mediante oráculos, con registros de auditoría independientes.</p></div></div>
+          <div class="acc-item"><button class="acc-btn">6) Riesgos</button><div class="acc-panel"><p>Los riesgos incluyen: volatilidad de mercado, riesgo de liquidez, fallas tecnológicas o de oráculos, cambios regulatorios, riesgo de contraparte o custodia. No hay garantías de retorno; el usuario debe realizar debida diligencia.</p></div></div>
+          <div class="acc-item"><button class="acc-btn">7) Privacidad y Datos</button><div class="acc-panel"><p>Se minimiza la recolección de datos. El KYC lo realiza un tercero bajo su propia política de privacidad. La dApp puede usar <code>localStorage</code> para preferencias. Derechos de acceso, rectificación y supresión se gestionan con el proveedor KYC y, en su caso, con la entidad responsable.</p></div></div>
+          <div class="acc-item"><button class="acc-btn">8) Impuestos</button><div class="acc-panel"><p>El usuario es responsable de sus obligaciones fiscales conforme a su jurisdicción. La plataforma puede proveer reportes de apoyo, sin sustituir asesoría profesional.</p></div></div>
+          <div class="acc-item"><button class="acc-btn">9) Propiedad Intelectual</button><div class="acc-panel"><p>Las marcas y contenidos pertenecen a sus titulares. No se concede licencia implícita. El uso del material requiere permiso expreso salvo excepciones legales.</p></div></div>
+          <div class="acc-item"><button class="acc-btn">10) Limitación de Responsabilidad y Fuerza Mayor</button><div class="acc-panel"><p>No se responde por daños indirectos ni por eventos fuera de control razonable (fallas de red, ataques, desastres naturales). La responsabilidad total, de existir, quedará limitada según lo permitido por la ley aplicable.</p></div></div>
+          <div class="acc-item"><button class="acc-btn">11) Resolución de Disputas</button><div class="acc-panel"><p>Escalamiento: (i) negociación, (ii) mediación opcional, (iii) arbitraje o tribunales competentes según el documento del proyecto. Idioma y sede serán definidos por la documentación de cada emisión.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="roadmap" aria-label="Roadmap">
+      <div class="container">
+        <h2>Roadmap</h2>
+        <div class="grid cols-3">
+          <div class="card"><b>Token $NESGES</b><p class="meta">Completado</p></div>
+          <div class="card"><b>Identidad visual</b><p class="meta">Completado</p></div>
+          <div class="card"><b>Piloto: Motel El Refugio (NFT)</b><p class="meta">En curso</p></div>
+          <div class="card"><b>Whitepaper</b><p class="meta">En redacción</p></div>
+          <div class="card"><b>Marco legal/contable RWA</b><p class="meta">En desarrollo</p></div>
+          <div class="card"><b>Integración DEXs & wallets</b><p class="meta">En pruebas</p></div>
+          <div class="card"><b>Plataforma web + DAO</b><p class="meta">Próximo</p></div>
+          <div class="card"><b>Expansión LATAM & África</b><p class="meta">Planeado</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" aria-label="Preguntas frecuentes">
+      <div class="container">
+        <h2>Preguntas Frecuentes (FAQ)</h2>
+        <div class="accordion">
+          <div class="acc-item"><button class="acc-btn">¿Qué es un RWA?</button><div class="acc-panel"><p>Un activo del mundo real tokenizado en blockchain mediante tokens o NFTs que representan derechos económicos o de uso.</p></div></div>
+          <div class="acc-item"><button class="acc-btn">¿Necesito conocimientos técnicos?</button><div class="acc-panel"><p>No. La interfaz es amigable y la plataforma guía el proceso paso a paso.</p></div></div>
+          <div class="acc-item"><button class="acc-btn">¿Cómo participo?</button><div class="acc-panel"><p>Conecta tu wallet EVM, adquiere $NESGES o NFTs de proyectos, y participa en la DAO para proponer y votar.</p></div></div>
+          <div class="acc-item"><button class="acc-btn">¿Qué riesgos existen?</button><div class="acc-panel"><p>Riesgos de mercado, liquidez, tecnológicos y regulatorios. Realiza due diligence y consulta asesores si es necesario.</p></div></div>
+          <div class="acc-item"><button class="acc-btn">¿Puedo vender mis tokens?</button><div class="acc-panel"><p>Depende de la liquidez del mercado secundario y de las restricciones del proyecto. Revisa la documentación específica.</p></div></div>
+          <div class="acc-item"><button class="acc-btn">¿Qué rendimientos puedo esperar?</button><div class="acc-panel"><p>No hay rendimientos garantizados. Cada proyecto define su estructura de retornos y reparto de valor si existiesen.</p></div></div>
+          <div class="acc-item"><button class="acc-btn">¿Qué wallets son compatibles?</button><div class="acc-panel"><p>Wallets EVM como MetaMask, Rabby, Brave Wallet, entre otras en la red Polygon.</p></div></div>
+          <div class="acc-item"><button class="acc-btn">¿Cómo se verifican los impactos?</button><div class="acc-panel"><p>Mediante evidencias ancladas en IPFS/Arweave y consumidas a través de oráculos, con auditorías externas cuando aplique.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto" aria-label="Contacto">
+      <div class="container grid cols-2">
+        <div>
+          <h2>Contacto</h2>
+          <p>¿Tienes un proyecto RWA o quieres colaborar? Envíanos un mensaje.</p>
+          <form id="contactFormES" novalidate>
+            <div class="row">
+              <div>
+                <label>Nombre</label>
+                <input name="name" placeholder="Tu nombre" required>
+              </div>
+              <div>
+                <label>Email</label>
+                <input type="email" name="email" placeholder="tucorreo@dominio.com" required>
+              </div>
+            </div>
+            <div class="row">
+              <div>
+                <label>Asunto</label>
+                <input name="subject" placeholder="Motivo del mensaje" required>
+              </div>
+              <div>
+                <label>Tipo</label>
+                <select name="type">
+                  <option>Propuesta de proyecto</option>
+                  <option>Alianza</option>
+                  <option>Soporte</option>
+                  <option>Otro</option>
+                </select>
+              </div>
+            </div>
+            <label>Mensaje</label>
+            <textarea name="message" rows="5" placeholder="Cuéntanos más..." required></textarea>
+            <label style="display:flex;align-items:center;gap:8px;margin-top:8px"><input type="checkbox" name="consent" required> <span class="meta">Acepto la política de privacidad</span></label>
+            <div class="actions">
+              <button class="btn primary" type="submit">Enviar</button>
+              <button class="btn" type="reset">Limpiar</button>
+            </div>
+            <div class="meta" id="contactMsgES" style="margin-top:8px"></div>
+          </form>
+        </div>
+        <div class="card">
+          <h3 style="margin-top:0">Información</h3>
+          <p class="meta">Red: Polygon PoS</p>
+          <p class="meta">Token: $NESGES</p>
+          <p class="meta">Contrato: 0x17f6e4beb6cee9ff533ce102bc31f846f8e945c4</p>
+          <p class="meta">Pool: 0xe0e0050a18514a29d407acfdc69f742658e97b2d</p>
+          <p class="meta">Email: info.nesgesfinance@gmail.com</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container grid cols-2">
+      <div>
+        <div class="brand" style="margin-bottom:10px">
+          <div class="brand-badge"><span>NG</span></div>
+          <div>
+            NESGESFinance
+            <div class="meta">“Y a tu prójimo como a ti mismo”</div>
+          </div>
+        </div>
+        <p class="meta">Tecnología Blockchain, Inclusión Financiera y Sostenibilidad Humana como eje de un nuevo paradigma económico solidario.</p>
+        <div class="badges">
+          <span class="badge">Polygon</span>
+          <span class="badge">DeFi</span>
+          <span class="badge">RWA</span>
+          <span class="badge">DAO</span>
+        </div>
+      </div>
+      <div>
+        <h3>Enlaces</h3>
+        <ul>
+          <li><a href="https://nesaraandgesarafinance.org" target="_blank" rel="noopener">Sitio oficial</a></li>
+          <li><a href="https://x.com/nesgesfinance" target="_blank" rel="noopener">X (Twitter)</a></li>
+          <li><a href="https://www.geckoterminal.com/polygon_pos/pools/0xe0e0050a18514a29d407acfdc69f742658e97b2d" target="_blank" rel="noopener">Pool de liquidez</a></li>
+          <li><span class="meta">Contrato: 0x17f6e4beb6cee9ff533ce102bc31f846f8e945c4</span></li>
+        </ul>
+        <p class="meta">© <span id="year"></span> NESGESFinance. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Helpers
+    const $ = (q)=>document.querySelector(q);
+    const $$ = (q)=>Array.from(document.querySelectorAll(q));
+
+    // Wallet connect (EVM demo)
+    const btnConnect = $('#btnConnect');
+    const walletPreview = $('#walletPreview');
+    async function connectWallet(){
+      if(!window.ethereum){ alert('No se detecta una wallet (MetaMask).'); return; }
+      try{
+        const accounts = await window.ethereum.request({ method:'eth_requestAccounts' });
+        const addr = accounts[0];
+        const short = addr.slice(0,6)+'…'+addr.slice(-4);
+        if(walletPreview) walletPreview.textContent = short;
+        localStorage.setItem('nesges.wallet', addr);
+      }catch(e){ console.error(e); alert('No se pudo conectar la wallet.'); }
+    }
+    btnConnect.addEventListener('click', connectWallet);
+
+    // KPI simulation
+    function randomizeKPIs(){
+      const funds = 128400 + Math.floor(Math.random()*5000)-2500;
+      const holders = 1246 + Math.floor(Math.random()*10)-5;
+      const impact = 412 + Math.floor(Math.random()*6)-3;
+      const f=$('#kpiFunds'); if(f) f.textContent = '$'+funds.toLocaleString('en-US');
+      const h=$('#kpiHolders'); if(h) h.textContent = holders.toLocaleString('en-US');
+      const i=$('#kpiImpact'); if(i) i.textContent = impact+' beneficiarios';
+    }
+    setInterval(randomizeKPIs,4000);
+
+    // Projects dataset
+    const projects = [
+      { name:'Motel El Refugio', country:'Ecuador', type:'RWA Inmobiliario', goal:250000, raised:128400, status:'en curso', link:'#' },
+      { name:'CobytoHouse (Rescate Animal)', country:'Ecuador', type:'Impacto Social', goal:80000, raised:23500, status:'próximo', link:'#' },
+      { name:'Laboratorio de Prótesis 3D', country:'Ecuador', type:'Salud', goal:60000, raised:41000, status:'en curso', link:'#' },
+      { name:'Hidroponía Comunitaria', country:'Ecuador', type:'Alimentación', goal:40000, raised:40000, status:'completado', link:'#' }
+    ];
+
+    function renderProjects(){
+      const q = ($('#search') && $('#search').value.toLowerCase())||'';
+      const f = ($('#statusFilter') && $('#statusFilter').value)||'all';
+      const tbody = document.getElementById('projectBody'); if(!tbody) return; tbody.innerHTML='';
+      projects.filter(p=>{
+        const matches = (p.name+p.country+p.type).toLowerCase().includes(q);
+        const stateOk = (f==='all') || (p.status===f);
+        return matches && stateOk;
+      }).forEach(p=>{
+        const tr=document.createElement('tr'); tr.innerHTML = `
+          <td><b>${p.name}</b></td>
+          <td>${p.country}</td>
+          <td><span class="pill">${p.type}</span></td>
+          <td>$${p.goal.toLocaleString('en-US')}</td>
+          <td>$${p.raised.toLocaleString('en-US')}</td>
+          <td>${p.status}</td>
+          <td><a class="btn" href="${p.link}">Ver</a></td>`;
+        tbody.appendChild(tr);
+      });
+      const kpiEl=document.getElementById('kpiProjects'); if(kpiEl) kpiEl.textContent = projects.filter(p=>p.status!=='próximo').length;
+    }
+
+    // Charts
+    function drawPie(canvasId,data){ const c=document.getElementById(canvasId); if(!c) return; const rect=c.getBoundingClientRect(); const ctx=c.getContext('2d'); c.width=rect.width*2; c.height=rect.height*2; ctx.scale(2,2); const width=rect.width, height=rect.height; const cx=width/2, cy=height/2, r=Math.min(width,height)/2-10; let start=0; const total=data.reduce((a,b)=>a+b.value,0); ctx.clearRect(0,0,width,height); data.forEach((d,i)=>{ const ang=(d.value/total)*Math.PI*2; const end=start+ang; ctx.beginPath(); ctx.moveTo(cx,cy); ctx.arc(cx,cy,r,start,end); ctx.closePath(); ctx.fillStyle=`hsl(${(i*72)%360} 70% 55%)`; ctx.fill(); const mid=start+ang/2; const lx=cx+Math.cos(mid)*(r+14); const ly=cy+Math.sin(mid)*(r+14); ctx.fillStyle='#cfe2f7'; ctx.font='12px Inter'; ctx.textAlign='center'; ctx.fillText(`${d.label} (${Math.round(d.value/total*100)}%)`, lx, ly); start=end; }); }
+    function drawBars(canvasId,labels,a,b){ const c=document.getElementById(canvasId); if(!c) return; const rect=c.getBoundingClientRect(); const ctx=c.getContext('2d'); c.width=rect.width*2; c.height=rect.height*2; ctx.scale(2,2); const width=rect.width, height=rect.height; const padding=30, w=width-padding*2, h=height-padding*2; const barW=w/(labels.length*3); const max=Math.max(...a,...b)*1.2; ctx.save(); ctx.translate(padding,padding); ctx.clearRect(-padding,-padding,width,height); ctx.fillStyle='#cfe2f7'; ctx.font='12px Inter'; labels.forEach((lb,i)=>{ ctx.fillText(lb, i*(barW*3)+barW, h+16); }); function drawSeries(values,offset,color){ values.forEach((v,i)=>{ const bh=h*(v/max); const x=i*(barW*3)+offset; const y=h-bh; ctx.fillStyle=color; ctx.fillRect(x,y,barW,bh); }); } drawSeries(a,0,'#4ade80'); drawSeries(b,barW+6,'#8b5cf6'); ctx.restore(); }
+
+    const tokenomics = [ {label:'Tesorería / Impact', value:30}, {label:'Holders / Comunidad', value:35}, {label:'Liquidez / DEX', value:15}, {label:'Equipo (vesting)', value:10}, {label:'Ecosistema / Alianzas', value:10} ];
+
+    function renderCharts(){
+      drawPie('pieToken', tokenomics);
+      drawBars('barImpact', ['Q1','Q2','Q3','Q4'], [40,55,62,70], [25,35,38,45]);
+    }
+
+    // DAO (localStorage demo)
+    const DAO_STORE = 'nesges.dao.proposals';
+    function loadDAO(){ try{ return JSON.parse(localStorage.getItem(DAO_STORE)||'[]'); }catch{ return []; } }
+    function saveDAO(list){ localStorage.setItem(DAO_STORE, JSON.stringify(list)); }
+    function addProposal(title,desc,author){ const list=loadDAO(); list.unshift({title,desc,author,date:Date.now(),votesYes:0,votesNo:0}); saveDAO(list); renderProposals(); }
+    function voteProposal(idx,choice,addr){ const list=loadDAO(); if(!list[idx]) return; const votedKey = `nesges.dao.voted.${idx}.${addr.toLowerCase()}`; if(localStorage.getItem(votedKey)){ alert('Ya has votado en esta propuesta.'); return; } if(choice==='yes') list[idx].votesYes++; else list[idx].votesNo++; saveDAO(list); localStorage.setItem(votedKey,'1'); renderProposals(); }
+    function renderProposals(){ const box=document.getElementById('proposalList'); if(!box) return; const list=loadDAO(); box.innerHTML=''; if(!list.length){ box.innerHTML = `<p class="meta">No hay propuestas aún.</p>`; return; } list.forEach((p,idx)=>{ const div=document.createElement('div'); div.className='card'; const yesPct = p.votesYes+p.votesNo>0? Math.round(p.votesYes*100/(p.votesYes+p.votesNo)) : 0; div.innerHTML = `<b>${p.title}</b><p>${p.desc}</p><div class="meta">Propuesto por: ${p.author.slice(0,6)}…${p.author.slice(-4)} • ${new Date(p.date).toLocaleString()}</div><div style=\"margin:8px 0\" class=\"meta\">Votos Sí: ${p.votesYes} • Votos No: ${p.votesNo} • Aprobación: ${yesPct}%</div><div style=\"display:flex;gap:10px\"><button class=\"btn\" data-idx=\"${idx}\" data-act=\"yes\">Votar Sí</button><button class=\"btn warn\" data-idx=\"${idx}\" data-act=\"no\">Votar No</button></div>`; box.appendChild(div); }); box.querySelectorAll('button').forEach(b=>{ b.addEventListener('click', (e)=>{ const idx=+e.currentTarget.dataset.idx; const act=e.currentTarget.dataset.act; const addr = localStorage.getItem('nesges.wallet'); if(!addr){ alert('Conecta tu wallet para votar.'); return; } voteProposal(idx, act, addr); }); }); }
+
+    // Submit handlers DAO
+    const submitES = document.getElementById('btnSubmitProp'); if(submitES){ submitES.addEventListener('click', ()=>{ const title = document.getElementById('proposalTitle').value.trim(); const desc = document.getElementById('proposalDesc').value.trim(); const author = localStorage.getItem('nesges.wallet')||'0x0000000000000000000000000000000000000000'; if(!title||!desc){ alert('Completa título y descripción.'); return; } addProposal(title,desc,author); document.getElementById('proposalTitle').value=''; document.getElementById('proposalDesc').value=''; }); document.getElementById('btnClearProp').addEventListener('click', ()=>{ document.getElementById('proposalTitle').value=''; document.getElementById('proposalDesc').value=''; }); }
+
+    // Accordion behavior
+    function bindAccordions(){ $$('.acc-btn').forEach(btn=>{ btn.addEventListener('click', ()=>{ const panel = btn.nextElementSibling; const open = panel.classList.toggle('open'); panel.style.maxHeight = open? panel.scrollHeight+'px' : 0; btn.setAttribute('aria-expanded', open); }); }); }
+
+    // Contact form
+    function bindContact(formId, msgId){ const form=document.getElementById(formId), msg=document.getElementById(msgId); if(!form) return; form.addEventListener('submit', (e)=>{ e.preventDefault(); const fd=new FormData(form); const required=['name','email','subject','message','consent']; for(const k of required){ if(!fd.get(k)){ msg.textContent = 'Por favor completa todos los campos y acepta la privacidad.'; msg.style.color = 'var(--warn)'; return; } } const payload = Object.fromEntries(fd.entries()); const list = JSON.parse(localStorage.getItem('nesges.contact')||'[]'); list.push({...payload, date:Date.now()}); localStorage.setItem('nesges.contact', JSON.stringify(list)); msg.textContent = '¡Gracias! Hemos recibido tu mensaje.'; msg.style.color = 'var(--brand)'; form.reset(); }); }
+
+    // Init
+    window.addEventListener('load', ()=>{
+      document.getElementById('year').textContent = new Date().getFullYear();
+      const savedWallet = localStorage.getItem('nesges.wallet'); if(savedWallet){ const short = savedWallet.slice(0,6)+'…'+savedWallet.slice(-4); if(walletPreview) walletPreview.textContent = short; }
+      renderProjects();
+      renderProposals();
+      bindAccordions();
+      bindContact('contactFormES','contactMsgES');
+      renderCharts();
+    });
+
+    window.addEventListener('resize', renderCharts);
+  </script>
+</body>
+</html>
