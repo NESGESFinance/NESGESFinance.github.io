@@ -1,542 +1,701 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head><head>
     <!-- Dentro de index-en.html -->
     <a href="index.html">🌐 Español</a>
+  <!-- Base Meta -->
   <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>NESGESFinance Ecosystem S.A.S. — Institutional Tokenization Platform</title>
-  <meta name="description" content="NESGESFinance Ecosystem S.A.S. — Tokenization with purpose. NGF-BTC-AM: Fungible Rune on Bitcoin for productive backing, payments, and governance." />
+
+  <!-- SEO -->
+  <title>NESGESFinance Ecosystem S.A.S — Tokenization with Purpose</title>
+  <meta name="description" content="Bitcoin-first ecosystem under implementation. RWA, circular economy and ethical governance. NGF-BTC-AM: utility Rune on L1/L2 (Taproot, Lightning, Taproot Assets)." />
+  <meta name="keywords" content="NESGESFinance, NGF-BTC-AM, Bitcoin, Runes, Taproot, Lightning Network, Taproot Assets, RWA, circular economy, governance, DAO, LATAM" />
+  <link rel="canonical" href="https://nesgesfinance.github.io" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="NESGESFinance Ecosystem S.A.S — Tokenization with Purpose" />
+  <meta property="og:description" content="Bitcoin-first model with tokenized real assets, Lightning liquidity, SAS+DAO governance and auditable transparency (implementation ongoing)." />
+  <meta property="og:url" content="https://nesgesfinance.github.io" />
+  <meta property="og:image" content="https://nesgesfinance.github.io/assets/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@nesngesfinance" />
+
+  <!-- Favicons -->
+  <link rel="icon" href="/favicon.ico" />
+
+  <!-- Styles -->
   <style>
     :root{
-      --bg:#0c0e10; --panel:#0f1416; --muted:#98a9b6; --text:#e6eef6; --metal1:#d4d7da; --metal2:#b0b6bb; --accent:#7ee6b8; --accent2:#9b7cff; --line:#1f2933; --glass: rgba(255,255,255,0.03);
+      --bg:#0b0d12; --bg-2:#0e121a; --panel:#0c111a; --panel-2:#0b1019;
+      --border:#1b2235; --text:#e6ecff; --muted:#a7b0c8;
+      --primary:#4fb8ff; --primary-700:#2b8dd6; --ink:#04121d;
+      --success:#2ecc71; --warning:#ffb020; --danger:#ff5c7a;
+      --purple:#9e6cff; --teal:#2fd4c0; --rose:#ff7aa2; --steel:#7f8cff; --gray:#7f7f7f;
+
+      /* Color-coded categories */
+      --cat-productive:#4fb8ff; --cat-social:#2fd4c0; --cat-environmental:#9e6cff;
+      --cat-agro:#ffb020; --cat-tourism:#ff7aa2; --cat-services:#2ecc71;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg),#071017 60%);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial}
-    a{color:var(--accent)}
-    .container{max-width:1200px;margin:0 auto;padding:28px}
-    header{position:sticky;top:0;z-index:60;background:linear-gradient(90deg,rgba(255,255,255,0.02),transparent);backdrop-filter: blur(6px);border-bottom:1px solid var(--line)}
-    nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-    .brand{display:flex;align-items:center;gap:12px}
-    .brand-badge{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--metal1),var(--metal2));display:grid;place-items:center;color:#071017;font-weight:800;box-shadow:0 8px 30px rgba(0,0,0,0.4)}
-    h1{font-size:28px;margin:0}
-    .kicker{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.12em}.hero{padding:40px 0;border-bottom:1px solid var(--line)}
-.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:22px;align-items:start}
-.card{background:linear-gradient(180deg,rgba(255,255,255,0.02),var(--panel));padding:18px;border-radius:12px;border:1px solid var(--line)}
-.statgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}
-.stat{padding:12px;border-radius:10px;background:var(--glass);border:1px solid rgba(255,255,255,0.03)}
-section{padding:44px 0;border-bottom:1px solid var(--line)}
-h2{font-size:22px;margin:0 0 12px}
-p{line-height:1.6;color:#cfe6f6}
-ul{margin:8px 0 0 18px}
-.grid{display:grid;gap:14px}
-.cols-2{grid-template-columns:repeat(2,1fr)}
-.cols-3{grid-template-columns:repeat(3,1fr)}
+    html,body{height:100%}
+    body{
+      margin:0; color:var(--text);
+      background:linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans";
+    }
+    a{color:var(--primary);text-decoration:none} a:hover{text-decoration:underline}
+    .container{width:100%;max-width:1200px;margin:0 auto;padding:0 20px}
+    .grid{display:grid;gap:16px}
+    .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+    @media (max-width:1020px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}}
+    .panel{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:18px;box-shadow:0 16px 40px -12px rgba(0,0,0,.4)}
+    .panel.alt{background:linear-gradient(180deg, var(--panel) 0%, var(--panel-2) 100%)}
+    .card{border:1px solid var(--border);border-radius:12px;background:#0c1018;padding:14px}
+    .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;border:1px solid var(--border);background:#0b0f17;color:var(--muted);font-size:12px}
+    .muted{color:var(--muted)}
+    h1,h2,h3{margin:0 0 10px 0}
+    section{padding:42px 0}
+    header.hero{padding:24px 0 18px;background:linear-gradient(180deg, #0b0d12 0%, #0d1119 100%);border-bottom:1px solid var(--border)}
+    .hero-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .brand-logo{width:44px;height:44px;border-radius:10px;background:radial-gradient(80% 80% at 50% 50%, #4fb8ff 0%, #9e6cff 100%);box-shadow:0 8px 20px rgba(79,184,255,.18)}
+    .toolbar{display:flex;gap:10px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:12px;border:1px solid var(--border);background:#0f1522;color:var(--text);cursor:pointer;font-weight:600}
+    .btn.primary{border-color:transparent;background:linear-gradient(180deg, var(--primary) 0%, var(--primary-700) 100%);color:var(--ink)}
+    .btn.success{background:linear-gradient(180deg, var(--success) 0%, #179b57 100%);border-color:transparent;color:var(--ink)}
+    .btn.warn{background:linear-gradient(180deg, var(--warning) 0%, #b27410 100%);border-color:transparent;color:#0c0f14}
+    .btn.ghost{background:transparent}
+    .btn:disabled{opacity:.6;cursor:not-allowed}
+    .divider{height:1px;background:var(--border);margin:18px 0}
+    .kpi{display:flex;flex-direction:column;gap:6px;padding:14px;border-radius:14px;border:1px solid var(--border);background:#0c111a}
+    .kpi .value{font-size:20px;font-weight:700}
+    .kpi .label{font-size:12px;color:var(--muted)}
+    .tag{font-size:12px;color:#0d1320;background:var(--primary);padding:2px 8px;border-radius:999px}
 
-table{width:100%;border-collapse:collapse}
-thead th{font-size:12px;color:var(--muted);text-align:left;padding:8px}
-tbody td{padding:10px;border-top:1px solid rgba(255,255,255,0.02)}
-.pill{display:inline-block;padding:4px 8px;border-radius:999px;border:1px solid var(--line);font-size:12px;background:rgba(255,255,255,0.01)}
+    /* Accessible accordion */
+    .acc{border:1px solid var(--border);border-radius:12px;overflow:hidden}
+    .acc-item+.acc-item{border-top:1px solid var(--border)}
+    .acc-btn{display:flex;align-items:center;justify-content:space-between;width:100%;background:#0c111a;color:var(--text);padding:14px;font-weight:600;cursor:pointer}
+    .acc-panel{background:#0b1019;max-height:0;overflow:hidden;transition:max-height .28s ease}
+    .acc-panel.open{max-height:800px}
+    .acc-body{padding:14px}
 
-.chart-card{display:flex;flex-direction:column;gap:8px}
-canvas{width:100%;height:260px;background:transparent;border-radius:8px}
+    /* Project table (info) */
+    .info-table{width:100%;border-collapse:collapse}
+    .info-table th, .info-table td{padding:10px;border-bottom:1px solid var(--border);text-align:left}
+    .info-table thead th{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
 
-.accordion{border-radius:10px;overflow:hidden}
-.acc-item{border-top:1px solid var(--line)}
-.acc-btn{width:100%;text-align:left;padding:12px 14px;background:transparent;color:var(--text);font-weight:700;border:0;cursor:pointer}
-.acc-panel{max-height:0;overflow:hidden;transition:max-height .28s ease;background:transparent;padding:0 14px}
-.acc-panel.open{padding:14px}
+    /* Inputs */
+    .input, select{
+      background:#0c111a;border:1px solid var(--border);color:var(--text);
+      padding:10px 12px;border-radius:10px;outline:none
+    }
+    .input::placeholder{color:#7080a8}
+    .flex{display:flex;gap:12px}
+    .flex-col{display:flex;flex-direction:column;gap:12px}
+    .right{justify-content:flex-end}
+    .between{justify-content:space-between}
+    .wrap{flex-wrap:wrap}
 
-form input, form textarea, form select{width:100%;padding:10px;border-radius:8px;border:1px solid var(--line);background:transparent;color:var(--text)}
-form label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+    /* Modal */
+    .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none}
+    .modal{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);width:min(760px,92vw);background:#0c111a;border:1px solid var(--border);border-radius:14px;display:none}
+    .modal.open{display:block}
+    .modal-backdrop.open{display:block}
+    .modal-header{padding:14px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+    .modal-body{padding:14px}
+    .close{background:transparent;border:none;color:var(--muted);cursor:pointer;font-size:22px}
 
-.btn{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:10px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);color:var(--text);cursor:pointer}
-.btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#02120d;border-color:transparent}
+    /* Footer */
+    footer{padding:28px 0;border-top:1px solid var(--border);background:#0c0f16}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:16px}
+    @media (max-width:980px){.footer-grid{grid-template-columns:1fr}}
 
-footer{padding:28px 0;color:var(--muted)}
+    /* Chart container */
+    .chart-wrap{padding:14px;border:1px solid var(--border);border-radius:12px;background:#0c111a}
 
-@media (max-width:980px){.hero-grid{grid-template-columns:1fr}.statgrid{grid-template-columns:repeat(2,1fr)}.cols-2,.cols-3{grid-template-columns:1fr}}
-
+    /* Alerts */
+    .notice{padding:12px;border:1px dashed var(--border);border-radius:10px;background:#0b111a;color:var(--muted);font-size:13px}
   </style>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
 </head>
 <body>
-   <!-- ==========================================================
-     NESGESFinance Ecosystem S.A.S. — Interactive HTML Banner
-     Version with metallic aesthetics, animations, and HTML-style Shields
-     ========================================================== -->
-
-<section id="nesges-banner" style="
-    width: 100%;
-    background: linear-gradient(135deg, #1a1a1a, #2b2b2b, #1a1a1a);
-    padding: 50px 20px;
-    text-align: center;
-    color: #e0e0e0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    border-bottom: 2px solid #3c3c3c;
-    box-shadow: 0 0 25px rgba(255,255,255,0.08);
-">
-
-    <style>
-        .metallic-text {
-            background: linear-gradient(90deg, #cfcfcf, #8f8f8f, #dcdcdc, #7d7d7d);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-        }
-
-        .shield {
-            display: inline-block;
-            margin: 6px;
-            padding: 10px 16px;
-            border-radius: 8px;
-            font-size: 0.85em;
-            font-weight: 600;
-            text-transform: uppercase;
-            color: #f0f0f0;
-            background: linear-gradient(135deg, #2e2e2e, #3d3d3d, #2a2a2a);
-            border: 1px solid #4d4d4d;
-            box-shadow: inset 0 0 8px rgba(255,255,255,0.06);
-            transition: all 0.3s ease-out;
-        }
-
-        .shield:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 0 12px rgba(255,255,255,0.15);
-            background: linear-gradient(135deg, #444444, #555555, #3d3d3d);
-        }
-
-        .sub-title {
-            font-size: 1.1em;
-            opacity: 0.82;
-            margin-bottom: 25px;
-            letter-spacing: 0.5px;
-        }
-
-        .contact-links a {
-            color: #bbbbbb;
-            text-decoration: none;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-
-        .contact-links a:hover {
-            color: #ffffff;
-            text-shadow: 0 0 8px rgba(255,255,255,0.5);
-        }
-    </style>
-
-    <h1 class="metallic-text" style="font-size: 2.5em;">NESGESFinance Ecosystem S.A.S.</h1>
-    <div class="sub-title">Tokenization with Purpose • Ethical Production • Decentralized Innovation</div>
-
-    <!-- Institutional Shields -->
-    <div style="margin-top: 25px; margin-bottom: 35px;">
-        <span class="shield">Ecosystem S.A.S.</span>
-        <span class="shield">Tokenization with purpose</span>
-        <span class="shield">Operational ethics</span>
-        <span class="shield">Proof of Production</span>
-        <span class="shield">Bitcoin Taproot L1</span>
-        <span class="shield">Lightning Network</span>
-        <span class="shield">Taproot Assets</span>
-        <span class="shield">Runes AM Model</span>
-    </div>
-
-    <!-- NGF-BTC-AM Asset -->
-    <h2 class="metallic-text" style="font-size: 1.4em;">Institutional Asset: NGF-BTC-AM</h2>
-    <div style="margin-top: 20px;">
-        <span class="shield">Elastic model</span>
-        <span class="shield">Audits every 30 days</span>
-        <span class="shield">Multisource oracles</span>
-        <span class="shield">Hybrid governance</span>
-        <span class="shield">NGF-BTC-AM API</span>
-    </div>
-
-    <!-- Strategic Areas -->
-    <h2 class="metallic-text" style="margin-top: 40px; font-size: 1.4em;">Strategic Areas of the Ecosystem</h2>
-    <div style="margin-top: 20px;">
-        <span class="shield">Social Projects</span>
-        <span class="shield">Ethical Production</span>
-        <span class="shield">Renewable Energy</span>
-        <span class="shield">Animal Rescue</span>
-        <span class="shield">DAO Governance</span>
-    </div>
-
-    <!-- Vision -->
-    <p style="
-        margin-top: 40px;
-        font-size: 1.2em;
-        max-width: 700px;
-        margin-left: auto;
-        margin-right: auto;
-        font-style: italic;
-        opacity: 0.9;
-    ">
-        “We build value through ethics, verifiable production, and decentralized technology.”
-    </p>
-
-    <!-- Contact -->
-    <div class="contact-links" style="margin-top: 40px; font-size: 1.1em;">
-        <a href="https://nesgesfinance.com" target="_blank">🌐 Official Website</a><br>
-        <a href="mailto:soporte@nesgesfinance.com">✉️ Institutional Contact</a>
-    </div>
-
-</section>
-  <header>
-    <div class="container">
-      <nav>
-        <div class="brand">
-          <div class="brand-badge">NG</div>
-          <div>
-            <div class="kicker">NESGESFinance Ecosystem S.A.S.</div>
-            <h1>Tokenization with Purpose — NGF-BTC-AM</h1>
-          </div>
-        </div>
-        <div style="display:flex;gap:12px;align-items:center">
-          <a class="btn" href="#contact">Contact</a>
-          <button class="btn primary" id="btnConnect">Connect Wallet</button>
-        </div>
-      </nav>
-    </div>
-  </header>  <main>
-    <section class="hero">
-      <div class="container hero-grid">
+<div align="center">
+</div>
+  <!-- Header -->
+  <header class="hero" role="banner">
+  <div class="container">
+    <div class="hero-top">
+      <div class="brand">
+        <div class="brand-logo" aria-hidden="true"></div>
         <div>
-          <p class="kicker">Blockchain • Circular Economy • Production • Social Impact</p>
-          <h2 style="color:var(--metal1)">NGF-BTC-AM — Active Rune for productive backing</h2>
-          <p>NGF-BTC-AM is the institutional fungible Rune created by NESGESFinance Ecosystem S.A.S. Its purpose is to serve as collateral, productive reserve, and exchange tool within a circular economy model that accepts recycled plastic and NGF-BTC-AM as payment methods.</p>
-          <div class="statgrid">
-            <div class="stat"><div class="meta">Supply</div><b>5,930,000,000</b></div>
-            <div class="stat"><div class="meta">Decimals</div><b>0</b></div>
-            <div class="stat"><div class="meta">Type</div><b>Fungible Rune (Bitcoin L1)</b></div>
-            <div class="stat"><div class="meta">Vesting</div><b>Linear 6–18 months (quarterly)</b></div>
+          <h1>NESGESFinance Ecosystem S.A.S</h1>
+          <p class="muted">Tokenization with Purpose — Bitcoin-first (Runes, Taproot, Lightning, Taproot Assets)</p>
+        </div>
+      </div>
+      <div class="toolbar">
+        <a class="btn ghost" href="https://nesgesfinance.com" target="_blank" rel="noopener">Website</a>
+        <a class="btn ghost" href="https://x.com/nesngesfinance" target="_blank" rel="noopener">X</a>
+        <button id="btnConnect" class="btn primary" aria-label="Connect wallet" disabled>Connect Wallet (coming soon)</button>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div class="panel">
+      <div class="notice">
+        Status: Implementation in progress. The Rune NGF-BTC-AM has been issued. No active presale. Projects are in technical and legal preparation phase. All information below is presented transparently and without simulated figures.
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Mission, Vision and Principles -->
+<section id="mision-vision">
+  <div class="container">
+    <div class="grid grid-2">
+      <div class="panel alt">
+        <h2>Mission</h2>
+        <p>To drive an economic ecosystem based on tokenized real-world assets (RWA), innovation on Bitcoin and human well-being, generating sustainable wealth, financial inclusion and responsible transformation.</p>
+        <div class="acc" style="margin-top:12px">
+          <div class="acc-item">
+            <button class="acc-btn" aria-expanded="false">Guiding Principles <span aria-hidden="true">▸</span></button>
+            <div class="acc-panel">
+              <div class="acc-body">
+                <ul class="muted">
+                  <li>Applied ethics and cooperation</li>
+                  <li>Production with purpose</li>
+                  <li>Transparency and traceability</li>
+                  <li>Functional decentralization</li>
+                  <li>Responsible innovation</li>
+                  <li>Financial inclusion</li>
+                  <li>Environmental sustainability</li>
+                  <li>Multijurisdictional legal compliance</li>
+                  <li>Participatory governance</li>
+                  <li>Fair redistribution of value</li>
+                </ul>
+                <p class="pill">Ethical principle: “And your neighbor as yourself”.</p>
+              </div>
+            </div>
           </div>
-          <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
-            <a class="btn" href="#projects">View Projects</a>
-            <a class="btn" href="#tokenomics">Tokenomics</a>
-          </div>
+        </div>
+      </div>
+      <div class="panel alt">
+        <h2>Vision 2025–2030</h2>
+        <p>To be the leading Latin American ecosystem of purposeful tokenization, globally scalable and based on real impact, connecting production, circular economy, technology and ethical governance.</p>
+        <div class="card">
+          <strong>Key Differentiators</strong>
+          <ul class="muted">
+            <li>Bitcoin-first (Runes L1, Taproot, Lightning L2, Taproot Assets)</li>
+            <li>RWA with operational return and digital certification (CP-NGF)</li>
+            <li>Auditable reserves: BTC + RWA + operational liquidity</li>
+            <li>Hybrid governance SAS + functional DAO by roles</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NGF-BTC-AM: asset and utilities -->
+<section id="activo">
+  <div class="container">
+    <h2>NGF-BTC-AM — Utility Asset on Bitcoin</h2>
+    <p class="muted">NGF-BTC-AM is a Rune issued on Bitcoin L1, designed to operate with extended traceability on L2 (Lightning) and 1:1 mirror in Taproot Assets.</p>
+    <div class="grid grid-3">
+      <div class="card">
+        <strong>Functional Uses</strong>
+        <ul class="muted">
+          <li>Internal/external medium of exchange</li>
+          <li>Swaps with BTC, stablecoins and productive assets</li>
+          <li>Production Certificates (CP-NGF)</li>
+          <li>Decentralized governance linked to impact</li>
+        </ul>
+      </div>
+      <div class="card">
+        <strong>Technical Architecture</strong>
+        <ul class="muted">
+          <li>Issuance: Runes (L1)</li>
+          <li>Payments: Lightning (L2)</li>
+          <li>Portability: Taproot Assets (1:1 mirror)</li>
+          <li>Custody: multisig 3/5 (SAS + auditor + ally)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <strong>Launch Status</strong>
+        <ul class="muted">
+          <li>Rune issued: NGF-BTC-AM</li>
+          <li>Presale: not started</li>
+          <li>Distribution: subject to vesting and governance</li>
+          <li>Public listings: to be announced</li>
+        </ul>
+      </div>
+    </div>
+    <div class="notice" style="margin-top:12px">
+      Note: No price promises or adoption figures. Operational value is based on real production, traceability and ethical governance, not speculation.
+    </div>
+  </div>
+</section>
+
+<!-- Tokenization and Circular Economy -->
+<section id="modelo">
+  <div class="container">
+    <h2>Tokenization Model and Circular Economy</h2>
+    <div class="grid grid-2">
+      <div class="panel">
+        <h3>RWA Tokenization</h3>
+        <p class="muted">Tokenized real assets: real estate, machinery, agro, energy, recycling. Monetization and blockchain traceability, with Production Certificates.</p>
+        <ul class="muted">
+          <li>Circular liquidity and productive access</li>
+          <li>Traceability from origin to exchange</li>
+            <li>Integration with domestic/foreign trade</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>Circular economy</h3>
+          <p class="muted">Each productive project generates flow that is reinvested into new assets, reserves, and social/environmental programs.</p>
+          <ul class="muted">
+            <li>Automatic reinjection through governance rules</li>
+            <li>Productive expansion funds</li>
+            <li>Incentives for verifiable impact</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core project: plastic -> fuel -->
+  <section id="plastic">
+    <div class="container">
+      <h2>Core Project: Plastic → Fuel</h2>
+      <p class="muted">Project in technical and legal preparation. Physical execution has not yet begun. The proposed scope and intended traceability are presented.</p>
+      <div class="grid grid-3">
+        <div class="card">
+          <strong>Proposed scope</strong>
+          <ul class="muted">
+            <li>Pyrolysis plants and collection logistics</li>
+            <li>Community purchase of recovered plastic</li>
+            <li>Tokenization of by-product (fuel) and CP-NGF</li>
+          </ul>
         </div>
         <div class="card">
-          <h3 style="margin-top:0">Operational panel (demo)</h3>
-          <div class="grid cols-2">
-            <div>
-              <div class="meta">Active projects</div>
-              <div><b id="kpiProjects">0</b></div>
-            </div>
-            <div>
-              <div class="meta">Holders</div>
-              <div><b id="kpiHolders">0</b></div>
-            </div>
-            <div>
-              <div class="meta">Circulating funds</div>
-              <div><b id="kpiFunds">$0</b></div>
-            </div>
-            <div>
-              <div class="meta">Direct impact</div>
-              <div><b id="kpiImpact">0 beneficiaries</b></div>
+          <strong>Traceability</strong>
+          <ul class="muted">
+            <li>Records of recovered volume</li>
+            <li>Environmental impact certificates</li>
+            <li>Hybrid settlement BTC/NGF-BTC-AM</li>
+          </ul>
+        </div>
+        <div class="card">
+          <strong>Status</strong>
+          <ul class="muted">
+            <li>Phase: preparation</li>
+            <li>Physical infrastructure: pending</li>
+            <li>Operational alliances: in dialogue</li>
+          </ul>
+        </div>
+      </div>
+      <div class="notice" style="margin-top:12px">
+        Transparency: No production or income figures are presented until the operational phase and field validation begin.
+      </div>
+    </div>
+  </section>
+
+  <!-- Tokenomics -->
+  <section id="tokenomics">
+    <div class="container">
+      <h2>Tokenomics of NGF-BTC-AM</h2>
+      <p class="muted">Fixed supply and functional allocations with ethical vesting. No active public distribution to date.</p>
+      <div class="grid grid-2">
+        <div class="panel">
+          <div class="flex wrap">
+            <div class="card"><strong>Total supply</strong><div id="supplyTotal" style="font-size:20px;font-weight:800">5,930,000,000</div></div>
+            <div class="card"><strong>Strategic reserve and liquidity</strong><div id="a1">1,779,000,000</div></div>
+            <div class="card"><strong>Productive projects</strong><div id="a2">1,482,500,000</div></div>
+            <div class="card"><strong>Social and environmental</strong><div id="a3">889,500,000</div></div>
+            <div class="card"><strong>Alliances and governance</strong><div id="a4">593,000,000</div></div>
+            <div class="card"><strong>NESGESFinance Treasury</strong><div id="a5">593,000,000</div></div>
+            <div class="card"><strong>Community and staking</strong><div id="a6">296,500,000</div></div>
+            <div class="card"><strong>Team and advisors</strong><div id="a7">237,200,000</div></div>
+            <div class="card"><strong>Immediate operations</strong><div id="a8">59,300,000</div></div>
+          </div>
+          <div class="divider"></div>
+          <div class="acc">
+            <div class="acc-item">
+              <button class="acc-btn" aria-expanded="false">Vesting and security policy <span aria-hidden="true">▸</span></button>
+              <div class="acc-panel">
+                <div class="acc-body">
+                  <ul class="muted">
+                    <li>Reserve/Treasury/Team: 6-month cliff + linear 12–18 months</li>
+                    <li>Productive/Social/Alliances: linear 6–12 months with impact milestones</li>
+                    <li>Community/Staking: distribution by verifiable participation; anti-whale caps</li>
+                    <li>3/5 multisig (SAS + auditor + partner) with semiannual key rotation</li>
+                    <li>Public log: on-chain + IPFS (PoR, allocations, and audits)</li>
+                  </ul>
+                  <p class="small muted">NGF-BTC-AM is a utility asset and does not constitute a public offering of securities.</p>
+                </div>
+              </div>
             </div>
           </div>
-          <p class="meta" style="margin-top:8px">Demo data; ready to connect to indexers and PoP oracles.</p>
+          <div class="notice" style="margin-top:12px">
+            Distribution: to be announced according to roadmap and governance. No presale in progress. Official channels and access criteria will be communicated.
+          </div>
+        </div>
+        <div class="panel">
+          <div class="chart-wrap">
+            <canvas id="pieToken" aria-label="Tokenomics pie chart" role="img"></canvas>
+          </div>
+          <div class="divider"></div>
+          <div class="chart-wrap">
+            <canvas id="barVesting" aria-label="Vesting chart (reference)" role="img"></canvas>
+          </div>
+          <div class="notice" style="margin-top:12px">
+            The charts are representations of proposed allocations and vesting windows; they do not imply active distribution or confirmed timetables.
+          </div>
         </div>
       </div>
-    </section>
-
-<section id="projects">
-  <div class="container">
-    <h2>Productive and Social Projects</h2>
-    <p class="meta">Interactive list of initiatives forming the productive and social-impact core of the ecosystem.</p>
-
-    <div class="card">
-      <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:end;margin-bottom:12px">
-        <div style="flex:1">
-          <label class="meta">Search</label>
-          <input id="search" placeholder="Name, type, or region" />
-        </div>
-        <div style="width:220px">
-          <label class="meta">Filter by category</label>
-          <select id="categoryFilter">
-            <option value="all">All</option>
-            <option value="plastic">Plastic→Fuel</option>
-            <option value="agro">Agro (crops)</option>
-            <option value="livestock">Livestock</option>
-            <option value="industrial">Industrial / Assembly</option>
-            <option value="energy">Energy</option>
-            <option value="tourism">Tourism / Real Estate</option>
-            <option value="social">Social / Rescue</option>
-            <option value="services">Services (drones, fumigation)</option>
-          </select>
-        </div>
-      </div>
-
-      <table>
-        <thead>
-          <tr><th>Project</th><th>Category</th><th>Location</th><th>Goal</th><th>Raised</th><th>Status</th><th></th></tr>
-        </thead>
-        <tbody id="projectBody"></tbody>
-      </table>
     </div>
+  </section>
 
-    <div style="margin-top:18px" class="card">
-      <h3>Project Type Details (extended)</h3>
-      <p>Detailed description by category and implementation examples:</p>
-      <h4>Plastic → Fuel (Pyrolysis)</h4>
-      <p>5,000 ton/year plants. Estimated production: 3.5M L/year. Tokenization models per plant, PoP metrics (tons processed, liters produced, CO₂ avoided) and revenue-sharing contracts.</p>
-
-      <h4>Agro: strategic crops and technology</h4>
-      <ul>
-        <li>Rice, corn, quinoa, plantain, sugarcane: large extensions and RWA contracts per farm.</li>
-        <li>Hydroponics and vertical farming: contracts per production cycle and traceability NFTs.</li>
-        <li>Azolla, organic fertilizers and soil-enhancing inputs: circular-value chain for aquaculture and soils.</li>
-      </ul>
-
-      <h4>Livestock and aquaculture</h4>
-      <p>Poultry farms (layers and broilers), pigs, cattle, goats, beekeeping, and fish farming. Models: NFTs per batch (e.g. 500 chickens = 1 NFT), performance tokens per kg produced.</p>
-
-      <h4>Industrial and Assembly</h4>
-      <p>Assembly plants for electric motorcycles, brushless wheelchairs, stretchers and light vehicles. Tokenization per production line and warranty/maintenance contracts.</p>
-
-      <h4>Drone Services</h4>
-      <p>Fumigation, fertilization, and mapping services. Tokenization per hectare serviced and on-chain SLAs.</p>
-
-      <h4>Tourism and Real Estate</h4>
-      <p>Productive land fractioning, decentralized Airbnb management, and income-sharing NFTs.</p>
-
-      <h4>Social Projects</h4>
-      <p>Animal rescue centers (CobytoHouse), 3D-printed prosthetics, therapy centers and social housing using recycled materials. Preferential access through recycled plastic + NGF-BTC-AM.</p>
-    </div>
-  </div>
-</section>
-
-<section id="tokenomics">
-  <div class="container">
-    <h2>Tokenomics & Allocation</h2>
-    <div class="grid cols-2">
-      <div class="card chart-card">
-        <h3>Supply Allocation</h3>
-        <canvas id="pieToken"></canvas>
-        <p class="meta">Total supply: <strong>5,930,000,000 NGF-BTC-AM</strong></p>
+  <!-- Bitcoin infrastructure -->
+  <section id="infra">
+    <div class="container">
+      <h2>Technical infrastructure and liquidity (planned)</h2>
+      <div class="grid grid-3">
+        <div class="card">
+          <strong>Bitcoin L1 + Runes</strong>
+          <p class="muted">Primary issuance of NGF-BTC-AM with on-chain registration and traceability.</p>
+          <ul class="muted"><li>Taproot and Schnorr signatures</li><li>Fixed supply and non-inflationary policy</li></ul>
+        </div>
+        <div class="card">
+          <strong>Lightning Network (L2)</strong>
+          <p class="muted">Instant payments, micropayments, and domestic commerce. Incentives for uptime and channel capacity (in design).</p>
+          <ul class="muted"><li>Private/public channels</li><li>NFC/QR POS</li></ul>
+        </div>
+        <div class="card">
+          <strong>Taproot Assets (1:1 mirror)</strong>
+          <p class="muted">1:1 parity with mint/burn policy to maintain operational equivalence. Compatibility with emerging wallets.</p>
+        </div>
       </div>
-      <div class="card">
-        <h3>Strategic Distribution</h3>
-        <table>
-          <thead><tr><th>Area</th><th>%</th><th>Amount</th></tr></thead>
+    </div>
+  </section>
+
+  <!-- Projects (preparation stage) -->
+  <section id="proyectos">
+    <div class="container">
+      <h2>Productive and social projects</h2>
+      <p class="muted">All projects are in technical/legal preparation. No physical execution to date. Proposed lines and scopes are presented.</p>
+      <div class="panel alt">
+        <table class="info-table" aria-label="Informative project line listing">
+          <thead>
+            <tr><th>Line</th><th>Description</th><th>Status</th></tr>
+          </thead>
           <tbody>
-            <tr><td>Strategic reserve and liquidity</td><td>30%</td><td id="a1"></td></tr>
-            <tr><td>Development of productive projects</td><td>25%</td><td id="a2"></td></tr>
-            <tr><td>Social and environmental projects</td><td>15%</td><td id="a3"></td></tr>
-            <tr><td>Alliances, partners and corporate governance</td><td>10%</td><td id="a4"></td></tr>
-            <tr><td>NESGESFinance Treasury</td><td>10%</td><td id="a5"></td></tr>
-            <tr><td>Community, rewards and staking</td><td>5%</td><td id="a6"></td></tr>
-            <tr><td>Founding team and advisors</td><td>4%</td><td id="a7"></td></tr>
-            <tr><td>Initial operating expenses</td><td>1%</td><td id="a8"></td></tr>
+            <tr><td>Plastic → Fuel</td><td>Pyrolysis, collection logistics, by-product tokenization</td><td>Pending execution</td></tr>
+            <tr><td>Tokenized agroindustry</td><td>Hydroponics/vertical, traceability and CP-NGF</td><td>Pending execution</td></tr>
+            <tr><td>Energy and biomass</td><td>Microgrids, biodigesters, mini-hydro</td><td>Pending execution</td></tr>
+            <tr><td>Tourism and real estate</td><td>Income tokenization and fractionalization</td><td>Pending execution</td></tr>
+            <tr><td>Drone services</td><td>Agricultural monitoring and mapping</td><td>Pending execution</td></tr>
+            <tr><td>Social and community</td><td>Animal rescue, 3D prosthetics, social housing</td><td>Pending execution</td></tr>
           </tbody>
         </table>
-        <p class="meta" style="margin-top:8px">Vesting: linear 6–18 months with quarterly unlocking; 1% exception for operational expenses.</p>
+      </div>
+      <div class="notice" style="margin-top:12px">
+        When the projects enter the operational phase, verifiable KPIs and impact reports with on-chain traceability will be published.
+      </div>
+    </div>
+  </section>
+
+  <!-- Transparency and audit -->
+  <section id="transparencia">
+  <div class="container">
+    <h2>Transparency and Audit</h2>
+    <p class="muted">Proof of reserves (BTC, Runes, Taproot Assets), public log (on-chain + IPFS), and planned internal/external audits.</p>
+    <div class="grid grid-3">
+      <div class="card">
+        <strong>Reserves and Custody</strong>
+        <ul class="muted">
+          <li>3/5 multisig custody (SAS + auditor + partner)</li>
+          <li>On-chain and IPFS logbook</li>
+          <li>Monthly internal audits (planned)</li>
+          <li>Annual external audits (planned)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <strong>Tests and Verifications</strong>
+        <ul class="muted">
+          <li>PoR BTC (UTXO/merkle proofs)</li>
+          <li>Runes/LN/Taproot Assets indexing</li>
+          <li>1:1 parity (mirror) — mint/burn</li>
+        </ul>
+      </div>
+      <div class="card">
+        <strong>Current Status</strong>
+        <ul class="muted">
+          <li>Rune issued</li>
+          <li>Public dashboards: to be announced</li>
+          <li>Explorer links: to be announced</li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
 
-<section id="pop">
-  <div class="container">
-    <h2>Proof-of-Production (PoP) & Oracles</h2>
-    <div class="card">
-      <h3>Summary</h3>
-      <p>The PoP system captures productive metrics (plastic tons, fuel liters, CO₂ tons avoided, kWh generated, units produced) and records them every 30 days into an index anchored to Bitcoin transactions (Taproot commitments) and IPFS contents for public auditability.</p>
-
-      <h3>Oracles</h3>
-      <ul>
-        <li>Production oracle (internal) — feeds the PoP index.</li>
-        <li>Environmental-impact oracle — measures CO₂ avoided and energy consumption.</li>
-        <li>Social-verification oracle — audits beneficiaries and deliverables.</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
+<!-- Governance -->
 <section id="governance">
   <div class="container">
-    <h2>Governance and Audit</h2>
-    <div class="grid cols-2">
-      <div class="card">
-        <h3>Hybrid Model</h3>
-        <ul>
-          <li>Institutional S.A.S. body for legal decisions and contracts.</li>
-          <li>DAO with limited voting for strategic decisions and operational-fund allocation — designed to prevent concentration of power.</li>
-          <li>Multi-signature for reserves and treasury operations.</li>
+    <h2>Hybrid Governance (SAS + DAO)</h2>
+    <div class="grid grid-2">
+      <div class="panel">
+        <h3>Structure</h3>
+        <ul class="muted">
+          <li>SAS: legal representation, agreements, and institutional custody</li>
+          <li>DAO: role/function voting, reputation, and validation committees</li>
+          <li>3/5 multisig for treasury and reserves</li>
         </ul>
       </div>
-      <div class="card">
-        <h3>Audit</h3>
-        <ul>
-          <li>Periodic Proof-of-Reserve and publication on IPFS.</li>
-          <li>Quarterly reports and annual external audits.</li>
-          <li>Public dashboards with indexed PoP data.</li>
+      <div class="panel">
+        <h3>Voting and Security Model</h3>
+        <ul class="muted">
+          <li>Minimum quorum and delegation limits</li>
+          <li>Incident policy and distribution pauses</li>
+          <li>Hash repository (minutes, reports) in IPFS</li>
+          <li>Proportional KYC/KYB by access levels</li>
         </ul>
+        <p class="small muted">NGF-BTC-AM is a utility asset; avoids classification as a security. Operations follow applicable frameworks per jurisdiction.</p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- Roadmap -->
 <section id="roadmap">
   <div class="container">
-    <h2>Roadmap</h2>
-    <div class="card">
-      <ol>
-        <li>NGF-BTC-AM issuance (completed)</li>
-        <li>Publication of schema and asset model on repository (completed)</li>
-        <li>Taproot Assets integration — certificate anchoring</li>
-        <li>Lightning Implementation: channels and liquidity pools</li>
-        <li>Deployment of pyrolysis pilot plants and tokenized farms</li>
-        <li>Institutional audit and regional expansion</li>
-      </ol>
+    <h2>Institutional Roadmap</h2>
+    <div class="grid grid-3">
+      <div class="card">
+        <strong>Technical Phase (in progress)</strong>
+        <ul class="muted">
+          <li>NGF-BTC-AM issuance (Runes)</li>
+          <li>Taproot Assets 1:1 parity design</li>
+          <li>Lightning and multisig specifications</li>
+          <li>APIs and wallet compatibility (planned)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <strong>Initial Adoption (planned)</strong>
+        <ul class="muted">
+          <li>Seed/controlled private placement</li>
+          <li>Pilot cases: plastic→fuel, agro, tourism</li>
+          <li>CP-NGF and internal commerce</li>
+        </ul>
+      </div>
+      <div class="card">
+        <strong>LATAM/Global Expansion (planned)</strong>
+        <ul class="muted">
+          <li>Delegations and allied nodes</li>
+          <li>Green and multilateral funds</li>
+          <li>Tokenized commerce and export</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- FAQ -->
 <section id="faq">
   <div class="container">
     <h2>Frequently Asked Questions</h2>
-    <div class="accordion">
-      <div class="acc-item"><button class="acc-btn">What is NGF-BTC-AM?</button><div class="acc-panel"><p>It is a fungible Rune on Bitcoin created by NESGESFinance Ecosystem S.A.S. to support productive projects and serve as payment method and institutional collateral.</p></div></div>
-      <div class="acc-item"><button class="acc-btn">How do I participate?</button><div class="acc-panel"><p>Connect a compatible wallet (UniSat, Xverse or other Taproot/Runes wallets), acquire NGF-BTC-AM on compatible markets or participate in private/seed rounds according to the roadmap.</p></div></div>
-      <div class="acc-item"><button class="acc-btn">What risks exist?</button><div class="acc-panel"><p>Volume and liquidity risks, technological (oracles), regulatory and operational risks. Review the risk chapter in the whitepaper before participating.</p></div></div>
-    </div>
-  </div>
-</section>
-
-<section id="contacto">
-  <div class="container">
-    <h2>Contact</h2>
-    <div class="grid cols-2">
-      <div class="card">
-        <form id="contactForm" novalidate>
-          <label>Name</label>
-          <input name="name" required />
-
-          <label>Email</label>
-          <input name="email" type="email" required />
-
-          <label>Message</label>
-          <textarea name="msg" rows="4" required></textarea>
-
-          <button class="btn primary" style="margin-top:12px">Send</button>
-        </form>
+    <div class="acc">
+      <div class="acc-item">
+        <button class="acc-btn" aria-expanded="false">What is NGF-BTC-AM? <span aria-hidden="true">▸</span></button>
+        <div class="acc-panel"><div class="acc-body"><p class="muted">A utility Rune issued on Bitcoin L1, with extended traceability in Lightning and a mirror in Taproot Assets. Designed for exchange, governance, and productive integration.</p></div></div>
       </div>
-
-      <div class="card">
-        <h3>Institutional Contact</h3>
-        <p>NESGESFinance Ecosystem S.A.S.<br/>
-        Tokenization with Purpose</p>
-        <p class="meta">For alliances, institutional participation, and regional development nodes:</p>
-        <p><b>Email:</b> info@nesgesfinance.org<br/>
-           <b>Web:</b> https://nesaraandgesarafinance.org<br/>
-           <b>Social:</b> https://x.com/nesngesfinance
-        </p>
+      <div class="acc-item">
+        <button class="acc-btn" aria-expanded="false">Is there an active presale? <span aria-hidden="true">▸</span></button>
+        <div class="acc-panel"><div class="acc-body"><p class="muted">No. The presale is not active yet. Any future distribution will follow vesting, governance, and official communication.</p></div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-btn" aria-expanded="false">What backs the ecosystem? <span aria-hidden="true">▸</span></button>
+        <div class="acc-panel"><div class="acc-body"><p class="muted">BTC (multisig custody), tokenized real-world assets (RWA), and planned operational liquidity. Proof of reserves and audits will be published.</p></div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-btn" aria-expanded="false">How to verify transparency? <span aria-hidden="true">▸</span></button>
+        <div class="acc-panel"><div class="acc-body"><p class="muted">Public dashboard, PoR, audits, and IPFS with verifiable hashes. Official links will be announced.</p></div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-btn" aria-expanded="false">Is KYC/KYB required? <span aria-hidden="true">▸</span></button>
+        <div class="acc-panel"><div class="acc-body"><p class="muted">Proportional model by levels: retail with limits, business/institutional with progressive verification.</p></div></div>
       </div>
     </div>
   </div>
 </section>
+</div>
+      </div>
+    </div>
+  </section>
 
-<footer>
-  <div class="container">
-    <p>© 2025 NESGESFinance Ecosystem S.A.S. — Tokenization with Purpose. All rights reserved.</p>
-  </div>
-</footer>
+  <!-- Legal and Privacy -->
+  <section id="legal">
+    <div class="container">
+      <h2>Legal Framework and Privacy Policy</h2>
+      <div class="grid grid-2">
+        <div class="panel">
+          <h3>Legal Framework</h3>
+          <ul class="muted">
+            <li>Parent structure: Simplified Joint Stock Company (S.A.S.)</li>
+            <li>Operations: private agreements, functional DAO and hybrid custody</li>
+            <li>Multijurisdictional expansion: LATAM + EU (planned)</li>
+            <li>Utility use: not a public securities offering</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>Privacy Policy (summary)</h3>
+          <ul class="muted">
+            <li>Minimal data collection for contact and partnerships</li>
+            <li>Proportional and consent-based use</li>
+            <li>Protection and controlled access</li>
+            <li>Transparency in reports and audits</li>
+          </ul>
+          <p class="small muted">The full policy will be published with details, user rights and request channels.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<script>
-/* -------- Tokenomics Auto-Fill -------- */
-const supply = 5930000000;
-const allocations = [0.30,0.25,0.15,0.10,0.10,0.05,0.04,0.01];
-["a1","a2","a3","a4","a5","a6","a7","a8"].forEach((id, i)=>{
-  document.getElementById(id).textContent =
-    Intl.NumberFormat().format(supply * allocations[i]);
-});
+  <!-- Contact -->
+  <section id="contacto">
+    <div class="container">
+      <h2>Institutional Contact</h2>
+      <div class="grid grid-3">
+        <div class="card">
+          <strong>Emails</strong>
+          <ul class="muted">
+            <li>info@nesgesfinance.github.io</li>
+            <li>info.nesgesfinance@gmail.com</li>
+          </ul>
+        </div>
+        <div class="card">
+          <strong>Web and Social Media</strong>
+          <ul class="muted">
+            <li><a href="https://nesgesfinance.com" target="_blank" rel="noopener">nesgesfinance.github.io</a></li>
+            <li><a href="https://x.com/nesngesfinance" target="_blank" rel="noopener">@nesngesfinance</a></li>
+          </ul>
+        </div>
+        <div class="card">
+          <strong>Alliances</strong>
+          <p class="muted">Companies, nodes, educators, donors and validators may contact us to explore technical integration and pilot projects.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-/* -------- Accordion -------- */
-document.querySelectorAll(".acc-btn").forEach(btn=>{
-  btn.addEventListener("click",()=>{
-    const panel = btn.nextElementSibling;
-    panel.classList.toggle("open");
-    panel.style.maxHeight = panel.classList.contains("open")
-      ? panel.scrollHeight + "px"
-      : 0;
-  });
-});
+  <!-- Footer -->
+  <footer role="contentinfo">
+    <div class="container footer-grid">
+      <div>
+        <p>© 2025 NESGESFinance Ecosystem S.A.S. — Tokenization with Purpose. All rights reserved.</p>
+        <p class="small muted">Transparency, real impact and ethical governance. Status: implementation in progress.</p>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="#activo">NGF-BTC-AM</a></li>
+          <li><a href="#modelo">Tokenization</a></li>
+          <li><a href="#plastico">Plastic→Fuel</a></li>
+          <li><a href="#tokenomics">Tokenomics</a></li>
+          <li><a href="#transparencia">Transparency</a></li>
+          <li><a href="#governance">Governance</a></li>
+          <li><a href="#roadmap">Roadmap</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#legal">Legal and Privacy</a></li>
+          <li><a href="#contacto">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Status</h4>
+        <ul>
+          <li>Presale: not active</li>
+          <li>Distribution: to be announced</li>
+          <li>Dashboards: to be announced</li>
+        </ul>
+      </div>
+    </div>
+  </footer>
 
-/* -------- Demo KPIs -------- */
-document.getElementById("kpiProjects").textContent = 12;
-document.getElementById("kpiHolders").textContent = 2145;
-document.getElementById("kpiFunds").textContent = "$182,000";
-document.getElementById("kpiImpact").textContent = "3,820 beneficiaries";
+  <!-- Scripts -->
+  <script>
+    /* Tokenomics (reference charts, without additional simulated figures) */
+    document.addEventListener("DOMContentLoaded", ()=>{
+      const pie = document.getElementById("pieToken");
+      const bar = document.getElementById("barVesting");
+      if(pie && window.Chart){
+        new Chart(pie, {
+          type: "pie",
+          data: {
+            labels: [
+              "Strategic reserve and liquidity",
+              "Productive projects",
+              "Social and environmental",
+              "Alliances and governance",
+              "NESGESFinance Treasury",
+              "Community and staking",
+              "Team and advisors",
+              "Immediate operations"
+            ],
+            datasets: [{
+              data: [30,25,15,10,10,5,4,1],
+              backgroundColor: ["#4fb8ff","#2fd4c0","#9e6cff","#ffb020","#2ecc71","#ff7aa2","#7f8cff","#7f7f7f"]
+            }]
+          },
+          options: {
+            responsive:true,
+            plugins:{ legend:{position:"bottom", labels:{color:"#e6ecff"}} }
+          }
+        });
+      }
+      if(bar && window.Chart){
+        new Chart(bar, {
+          type: "bar",
+          data: {
+            labels: ["Reserve","Productive","Social","Alliances","Treasury","Community","Team","Operations"],
+            datasets: [{
+              label: "Cliff (months)",
+              data: [6,0,0,0,6,0,6,0],
+              backgroundColor: "rgba(79,184,255,.6)"
+            },{
+              label: "Linear (months)",
+              data: [18,12,12,18,18,12,18,6],
+              backgroundColor: "rgba(158,108,255,.6)"
+            }]
+          },
+          options: {
+            responsive:true,
+            scales:{ x:{ticks:{color:"#e6ecff"}}, y:{ticks:{color:"#e6ecff"}} },
+            plugins:{ legend:{labels:{color:"#e6ecff"}} }
+          }
+        });
+      }
+    });
 
-/* -------- Project Table Demo -------- */
-const projects = [
-  {name:"Pyrolysis Plant — Unit A",cat:"Plástico→Combustible",loc:"Manabí",goal:"$1,200,000",raised:"$320,000",state:"In progress"},
-  {name:"Vertical Hydroponic Farm",cat:"agro",loc:"Pichincha",goal:"$450,000",raised:"$180,000",state:"In progress"},
-  {name:"CobytoHouse Rescue Center",cat:"social",loc:"Imbabura",goal:"$60,000",raised:"$52,000",state:"Near completion"},
-  {name:"Airbnb Tokenized Lodge",cat:"turismo",loc:"Azuay",goal:"$280,000",raised:"$94,000",state:"Open"},
-  {name:"Drone Services Program",cat:"servicios",loc:"Los Ríos",goal:"$95,000",raised:"$33,000",state:"Open"},
-];
-function renderProjects(list){
-  projectBody.innerHTML = list.map(p=>`
-    <tr>
-      <td>${p.name}</td>
-      <td>${p.cat}</td>
-      <td>${p.loc}</td>
-      <td>${p.goal}</td>
-      <td>${p.raised}</td>
-      <td>${p.state}</td>
-      <td><a class="btn" href="#">View</a></td>
-    </tr>
-  `).join("");
-}
-renderProjects(projects);
+    /* Accessible accordion */
+    document.querySelectorAll(".acc-btn").forEach(btn=>{
+      btn.addEventListener("click",()=>{
+        const panel = btn.nextElementSibling;
+        const open = panel.classList.toggle("open");
+        panel.style.maxHeight = open ? panel.scrollHeight + "px" : 0;
+        btn.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+    });
 
-/* -------- Search & Filter -------- */
-search.addEventListener("input",()=>{
-  const s = search.value.toLowerCase();
-  renderProjects(projects.filter(p =>
-    p.name.toLowerCase().includes(s) ||
-    p.cat.toLowerCase().includes(s) ||
-    p.loc.toLowerCase().includes(s)
-  ));
-});
-categoryFilter.addEventListener("change",()=>{
-  const c = categoryFilter.value;
-  renderProjects(c==="all"?projects:projects.filter(p=>p.cat===c));
-});
-
-/* -------- Wallet Button (demo) -------- */
-btnConnect.addEventListener("click",()=>{
-  alert("Wallet connection module under development (Taproot/Runes compatible).");
-});
-
-/* -------- Tokenomics Pie Chart -------- */
-const ctx = document.getElementById("pieToken");
-if(ctx){
-  new Chart(ctx, {
-    type: "pie",
-    data: {
-      labels: [
-        "Strategic Reserve & Liquidity",
-        "Productive Project Development",
-        "Social & Environmental Projects",
-        "Alliances & Corporate Governance",
-        "Treasury NESGESFinance",
-        "Community & Staking",
-        "Founding Team & Advisors",
-        "Initial Operational Costs"
-      ],
-      datasets: [{
-        data: allocations.map(x=>x*100)
-      }]
-    },
-    options: {responsive:true}
-  });
-}
-</script>
-
+    /* Wallet button disabled until integration */
+    document.getElementById("btnConnect").addEventListener("click",()=>{
+      alert("Wallet integration (Taproot/Runes/Lightning) will be enabled soon. Stay tuned to official channels.");
+    });
+  </script>
 </body>
 </html>
-        
