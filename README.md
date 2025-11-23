@@ -294,7 +294,7 @@ Democratizar el acceso financiero global
 Contacto
 
 NESGESFinance Ecosystem S.A.S.
-🌐 https://nesaraandgesarafinance.org
+🌐 https://nesgesfinance.com
 ✉ info.nesgesfinance@gmail.com
 ✦ X (Twitter): https://x.com/nesngesfinance
 
