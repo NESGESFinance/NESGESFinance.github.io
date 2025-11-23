@@ -1,6 +1,6 @@
-# 🌐 Plataforma de Tokenización de Proyectos RWA's NESARAGESARA FINANCE (NESGESFinance)
+# 🌐 Plataforma de Tokenización de Proyectos RWA's NESGESFinance Ecosystem S.A.S. (NESGESFinance)
 
-Bienvenido a la **Plataforma de Tokenización de Proyectos RWA NESGESFinance**, un ecosistema diseñado para transformar activos del mundo real (RWA, *Real World Assets*) en activos digitales basados en blockchain, accesibles a cualquier persona en cualquier parte del mundo.
+Bienvenido al **Ecosistema de Tokenización de Proyectos RWA NESGESFinance Ecosystem S.S.S.**, un ecosistema diseñado para transformar activos del mundo real (RWA, *Real World Assets*) en activos digitales basados en Bitcoin usando el protocolo Runes y la tecnología Blockchain, accesibles a cualquier persona en cualquier parte del mundo.
 
 Nuestro propósito es **democratizar la inversión**, generar oportunidades de impacto social y ambiental, y construir un puente seguro entre la economía tradicional y la economía digital.
 
@@ -35,7 +35,7 @@ Mediante **tokenización**, estos activos se representan digitalmente como **tok
 - **Tokenización de activos reales** → conversión de propiedades físicas en tokens digitales.  
 - **Marketplace seguro** → para comprar y vender participaciones tokenizadas.  
 - **Integración DeFi** → liquidez y rendimientos mediante pools y staking.  
-- **NFTs con valor real** → cada NFT está respaldado por un activo tangible.  
+- **Runess con valor real** → cada NGF-BTC-AM está respaldado por un proyecto y un activo tangible.  
 - **Impacto social y ambiental** → proyectos enfocados en sostenibilidad.  
 
 ---
@@ -44,22 +44,18 @@ Mediante **tokenización**, estos activos se representan digitalmente como **tok
 
 1. **Selección del activo** → un inmueble, proyecto energético o iniciativa social.  
 2. **Proceso legal y validación** → certificación del valor y documentos oficiales.  
-3. **Emisión de tokens/NFTs** → representación digital del activo en blockchain.  
+3. **Emisión de tokens/NFTs** → representación digital del proyecto como activo en blockchain.  
 4. **Venta pública en la plataforma** → accesible a cualquier usuario con una wallet.  
 5. **Generación de retornos** → según los ingresos del activo o modelo definido.  
 
 ---
 
-##  Primer Proyecto: *Motel El Refugio + Centro Animal CobytoHouse*
+##  Primer Proyecto Piloto: *Hotel El Refugio*
 
-Nuestro primer caso de tokenización integra:  
+Nuestro primer caso de tokenización integrará:  
 
-- **Un motel en operación**, con ingresos diarios.  
+- **Un hotel en operación**, con ingresos diarios.  
 - **Un centro de rescate animal** que será financiado con parte de los ingresos.  
-- **Emisión de NFTs** respaldados por el inmueble y su operación.  
+- **Emisión de NFTs** respaldados por el inmueble y su operación y el activo NGF-BTC-AM como colateral.  
 
- Los participantes recibirán un retorno anual del **5%**, mientras apoyan una **causa social y ambiental**.
-
----
-
-##  Estructura del Repositorio
+ Los participantes recibirán un retorno anual del **5% al 7%**, mientras apoyan una **causa social y ambiental**.
