@@ -1,695 +1,1130 @@
 <!DOCTYPE html>
 <html lang="es" dir="ltr">
 <head>
-    <!-- Dentro de index.html -->
-    <a href="index-en.html">🌐 English</a>
-  <!-- Meta base -->
+  <!-- Dentro de index.html -->
+  <a href="index-en.html" class="lang-switcher">🌐 English</a>
+  
+  <!-- Meta base optimizada -->
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b0d12" />
 
-  <!-- SEO -->
-  <title>NESGESFinance Ecosystem S.A.S — Tokenización con Propósito</title>
-  <meta name="description" content="Ecosistema Bitcoin-first en etapa de implementación. RWA, economía circular y gobernanza ética. NGF•BTC•AM: Rune utilitaria sobre L1/L2 (Taproot, Lightning, Taproot Assets)." />
-  <meta name="keywords" content="NESGESFinance, NGF•BTC•AM, Bitcoin, Runes, Taproot, Lightning Network, Taproot Assets, RWA, economía circular, gobernanza, DAO, LATAM" />
-  <link rel="canonical" href="https://nesgesfinance.github.io" />
+  <!-- SEO Mejorado -->
+  <title>NESGESFinance | Tokenización de Activos Reales en Bitcoin</title>
+  <meta name="description" content="Infraestructura Bitcoin L1/L2 para tokenización ética de proyectos productivos y sociales. Emisión verificada de NGF•BTC•AM. Buscamos aliados para Fase Alfa." />
+  <meta name="keywords" content="tokenización RWA, Bitcoin Runes, Taproot Assets, Lightning Network, proyectos productivos, impacto social, Ecuador, LATAM, blockchain ético" />
+  <link rel="canonical" href="https://nesgesfinance.org" />
 
-  <!-- Open Graph / Twitter -->
+  <!-- Open Graph / Twitter actualizados -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="NESGESFinance Ecosystem S.A.S — Tokenización con Propósito" />
-  <meta property="og:description" content="Modelo Bitcoin-first con activos reales tokenizados, liquidez Lightning, gobernanza SAS+DAO y transparencia auditable (implementación en curso)." />
-  <meta property="og:url" content="https://nesgesfinance.com" />
-  <meta property="og:image" content="https://nesgesfinance.com/assets/og-image.png" />
+  <meta property="og:title" content="NESGESFinance | Tokenización con Propósito en Bitcoin" />
+  <meta property="og:description" content="Ecosistema Bitcoin-first para proyectos reales. Fase fundacional completada. Buscamos aliados para tokenización en L1/L2." />
+  <meta property="og:url" content="https://nesgesfinance.org" />
+  <meta property="og:image" content="https://nesgesfinance.org/assets/og-image-v2.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:site" content="@nesngesfinance" />
+  <meta name="twitter:site" content="@nesgesfinance" />
+  <meta name="twitter:creator" content="@nesgesfinance" />
 
   <!-- Favicons -->
   <link rel="icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
-  <!-- Styles -->
+  <!-- Styles modernizados -->
   <style>
-    :root{
-      --bg:#0b0d12; --bg-2:#0e121a; --panel:#0c111a; --panel-2:#0b1019;
-      --border:#1b2235; --text:#e6ecff; --muted:#a7b0c8;
-      --primary:#4fb8ff; --primary-700:#2b8dd6; --ink:#04121d;
-      --success:#2ecc71; --warning:#ffb020; --danger:#ff5c7a;
-      --purple:#9e6cff; --teal:#2fd4c0; --rose:#ff7aa2; --steel:#7f8cff; --gray:#7f7f7f;
-
-      /* Color-coded categorías */
-      --cat-productivo:#4fb8ff; --cat-social:#2fd4c0; --cat-ambiental:#9e6cff;
-      --cat-agro:#ffb020; --cat-turismo:#ff7aa2; --cat-servicios:#2ecc71;
+    :root {
+      --bg: #0b0d12;
+      --bg-2: #0e121a;
+      --panel: rgba(12, 17, 26, 0.85);
+      --panel-solid: #0c111a;
+      --border: rgba(27, 34, 53, 0.6);
+      --text: #f0f4ff;
+      --muted: #a7b0c8;
+      --primary: #4fb8ff;
+      --primary-glow: rgba(79, 184, 255, 0.15);
+      --secondary: #9e6cff;
+      --success: #2fd4c0;
+      --warning: #ffb020;
+      --danger: #ff5c7a;
+      --gradient: linear-gradient(135deg, #4fb8ff 0%, #9e6cff 100%);
+      --glass: rgba(12, 17, 26, 0.7);
+      --shadow: 0 20px 60px -20px rgba(0, 0, 0, 0.5);
+      --shadow-lg: 0 30px 80px -30px rgba(0, 0, 0, 0.7);
     }
-    html,body{height:100%}
-    body{
-      margin:0; color:var(--text);
-      background:linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
-      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans";
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    a{color:var(--primary);text-decoration:none} a:hover{text-decoration:underline}
-    .container{width:100%;max-width:1200px;margin:0 auto;padding:0 20px}
-    .grid{display:grid;gap:16px}
-    .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
-    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
-    .grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
-    @media (max-width:1020px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}}
-    .panel{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:18px;box-shadow:0 16px 40px -12px rgba(0,0,0,.4)}
-    .panel.alt{background:linear-gradient(180deg, var(--panel) 0%, var(--panel-2) 100%)}
-    .card{border:1px solid var(--border);border-radius:12px;background:#0c1018;padding:14px}
-    .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;border:1px solid var(--border);background:#0b0f17;color:var(--muted);font-size:12px}
-    .muted{color:var(--muted)}
-    h1,h2,h3{margin:0 0 10px 0}
-    section{padding:42px 0}
-    header.hero{padding:24px 0 18px;background:linear-gradient(180deg, #0b0d12 0%, #0d1119 100%);border-bottom:1px solid var(--border)}
-    .hero-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
-    .brand{display:flex;align-items:center;gap:14px}
-    .brand-logo{width:44px;height:44px;border-radius:10px;background:radial-gradient(80% 80% at 50% 50%, #4fb8ff 0%, #9e6cff 100%);box-shadow:0 8px 20px rgba(79,184,255,.18)}
-    .toolbar{display:flex;gap:10px;flex-wrap:wrap}
-    .btn{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:12px;border:1px solid var(--border);background:#0f1522;color:var(--text);cursor:pointer;font-weight:600}
-    .btn.primary{border-color:transparent;background:linear-gradient(180deg, var(--primary) 0%, var(--primary-700) 100%);color:var(--ink)}
-    .btn.success{background:linear-gradient(180deg, var(--success) 0%, #179b57 100%);border-color:transparent;color:var(--ink)}
-    .btn.warn{background:linear-gradient(180deg, var(--warning) 0%, #b27410 100%);border-color:transparent;color:#0c0f14}
-    .btn.ghost{background:transparent}
-    .btn:disabled{opacity:.6;cursor:not-allowed}
-    .divider{height:1px;background:var(--border);margin:18px 0}
-    .kpi{display:flex;flex-direction:column;gap:6px;padding:14px;border-radius:14px;border:1px solid var(--border);background:#0c111a}
-    .kpi .value{font-size:20px;font-weight:700}
-    .kpi .label{font-size:12px;color:var(--muted)}
-    .tag{font-size:12px;color:#0d1320;background:var(--primary);padding:2px 8px;border-radius:999px}
 
-    /* Acordeón accesible */
-    .acc{border:1px solid var(--border);border-radius:12px;overflow:hidden}
-    .acc-item+.acc-item{border-top:1px solid var(--border)}
-    .acc-btn{display:flex;align-items:center;justify-content:space-between;width:100%;background:#0c111a;color:var(--text);padding:14px;font-weight:600;cursor:pointer}
-    .acc-panel{background:#0b1019;max-height:0;overflow:hidden;transition:max-height .28s ease}
-    .acc-panel.open{max-height:800px}
-    .acc-body{padding:14px}
-
-    /* Tabla proyectos (info) */
-    .info-table{width:100%;border-collapse:collapse}
-    .info-table th, .info-table td{padding:10px;border-bottom:1px solid var(--border);text-align:left}
-    .info-table thead th{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
-
-    /* Inputs */
-    .input, select{
-      background:#0c111a;border:1px solid var(--border);color:var(--text);
-      padding:10px 12px;border-radius:10px;outline:none
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
     }
-    .input::placeholder{color:#7080a8}
-    .flex{display:flex;gap:12px}
-    .flex-col{display:flex;flex-direction:column;gap:12px}
-    .right{justify-content:flex-end}
-    .between{justify-content:space-between}
-    .wrap{flex-wrap:wrap}
 
-    /* Modal */
-    .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none}
-    .modal{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);width:min(760px,92vw);background:#0c111a;border:1px solid var(--border);border-radius:14px;display:none}
-    .modal.open{display:block}
-    .modal-backdrop.open{display:block}
-    .modal-header{padding:14px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
-    .modal-body{padding:14px}
-    .close{background:transparent;border:none;color:var(--muted);cursor:pointer;font-size:22px}
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 20% 30%, rgba(79, 184, 255, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(158, 108, 255, 0.05) 0%, transparent 50%);
+    }
 
-    /* Footer */
-    footer{padding:28px 0;border-top:1px solid var(--border);background:#0c0f16}
-    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:16px}
-    @media (max-width:980px){.footer-grid{grid-template-columns:1fr}}
+    /* Tipografía moderna */
+    h1, h2, h3, h4 {
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
 
-    /* Chart container */
-    .chart-wrap{padding:14px;border:1px solid var(--border);border-radius:12px;background:#0c111a}
+    h1 { font-size: 3.5rem; margin-bottom: 1.5rem; }
+    h2 { font-size: 2.5rem; margin-bottom: 2rem; position: relative; }
+    h2:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: var(--gradient);
+      border-radius: 2px;
+    }
+    h3 { font-size: 1.75rem; margin-bottom: 1rem; }
+    p { margin-bottom: 1.5rem; color: var(--muted); }
 
-    /* Alerts */
-    .notice{padding:12px;border:1px dashed var(--border);border-radius:10px;background:#0b111a;color:var(--muted);font-size:13px}
+    /* Layout */
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section {
+      padding: 100px 0;
+      position: relative;
+    }
+
+    /* Header moderno */
+    .lang-switcher {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      background: var(--glass);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border);
+      padding: 8px 16px;
+      border-radius: 12px;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+
+    .lang-switcher:hover {
+      background: var(--panel-solid);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    header.hero {
+      padding: 160px 0 100px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(79, 184, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(158, 108, 255, 0.1) 0%, transparent 50%);
+      z-index: -1;
+    }
+
+    .hero-content {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero-tagline {
+      font-size: 1.25rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* CTA Principal */
+    .cta-group {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 32px;
+      border-radius: 16px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 2px solid transparent;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary {
+      background: var(--gradient);
+      color: var(--bg);
+      border: none;
+      box-shadow: 0 10px 30px -10px rgba(79, 184, 255, 0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 40px -15px rgba(79, 184, 255, 0.6);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 2px solid var(--border);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--primary);
+      background: var(--primary-glow);
+      transform: translateY(-3px);
+    }
+
+    /* Tarjetas modernas */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 3rem;
+    }
+
+    .card {
+      background: var(--glass);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 32px;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--gradient);
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      border-color: var(--primary);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .card:hover:before {
+      transform: scaleX(1);
+    }
+
+    .card-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      background: var(--primary-glow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      font-size: 28px;
+    }
+
+    /* Acordeón mejorado */
+    .accordion {
+      margin-top: 2rem;
+    }
+
+    .accordion-item {
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+
+    .accordion-header {
+      padding: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .accordion-header:hover {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .accordion-content {
+      padding: 0 24px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+
+    .accordion-content.open {
+      padding: 0 24px 24px;
+      max-height: 1000px;
+    }
+
+    /* Sección de Transparencia */
+    .transparency-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+      margin-top: 3rem;
+    }
+
+    .transparency-item {
+      text-align: center;
+      padding: 32px;
+      background: var(--glass);
+      border-radius: 20px;
+      border: 1px solid var(--border);
+    }
+
+    .verify-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: rgba(47, 212, 192, 0.1);
+      color: var(--success);
+      border-radius: 12px;
+      font-size: 0.9rem;
+      margin-top: 16px;
+    }
+
+    /* Formulario moderno */
+    .project-form {
+      background: var(--glass);
+      backdrop-filter: blur(10px);
+      border-radius: 24px;
+      padding: 48px;
+      border: 1px solid var(--border);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+      width: 100%;
+      padding: 16px;
+      background: rgba(12, 17, 26, 0.6);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      color: var(--text);
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px var(--primary-glow);
+    }
+
+    /* Footer mejorado */
+    footer {
+      background: var(--bg-2);
+      padding: 80px 0 40px;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: 1024px) {
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .footer-links h4 {
+      margin-bottom: 20px;
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      h1 { font-size: 2.5rem; }
+      h2 { font-size: 2rem; }
+      h3 { font-size: 1.5rem; }
+      
+      section {
+        padding: 60px 0;
+      }
+      
+      .hero-content {
+        padding: 0 20px;
+      }
+      
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .cta-group {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .btn {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+
+    /* Animaciones */
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+
+    .floating {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    /* Indicador de progreso */
+    .progress-ring {
+      width: 120px;
+      height: 120px;
+    }
+
+    .progress-ring__circle {
+      transform: rotate(-90deg);
+      transform-origin: 50% 50%;
+      stroke-dasharray: 314;
+      stroke-dashoffset: 314;
+      transition: stroke-dashoffset 1s ease;
+    }
   </style>
 
   <!-- Chart.js -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <!-- Header -->
+  <!-- Language Switcher -->
+  <a href="index-en.html" class="lang-switcher">
+    <i class="fas fa-globe"></i> English
+  </a>
+
+  <!-- Hero Section -->
   <header class="hero" role="banner">
+    <div class="hero-bg"></div>
     <div class="container">
-      <div class="hero-top">
-        <div class="brand">
-          <div class="brand-logo" aria-hidden="true"></div>
-          <div>
-            <h1>NESGESFinance Ecosystem S.A.S</h1>
-            <p class="muted">Tokenización con Propósito — Bitcoin-first (Runes, Taproot, Lightning, Taproot Assets)</p>
-          </div>
+      <div class="hero-content floating">
+        <div class="brand-logo" style="width: 120px; height: 120px; border-radius: 24px; background: var(--gradient); margin: 0 auto 40px; box-shadow: var(--shadow-lg);"></div>
+        <h1>Tokenización con Propósito</h1>
+        <p class="hero-tagline">Infraestructura Bitcoin L1/L2 para proyectos productivos y sociales reales. Fase fundacional completada. Buscamos aliados para nuestra Fase Alfa.</p>
+        <div class="cta-group">
+          <a href="#postulate" class="btn btn-primary">
+            <i class="fas fa-rocket"></i> Postular Proyecto Piloto
+          </a>
+          <a href="#transparency" class="btn btn-secondary">
+            <i class="fas fa-shield-alt"></i> Verificar Transparencia
+          </a>
         </div>
-        <div class="toolbar">
-          <a class="btn ghost" href="https://nesgesfinance.com" target="_blank" rel="noopener">Sitio web</a>
-          <a class="btn ghost" href="https://x.com/nesngesfinance" target="_blank" rel="noopener">X</a>
-          <button id="btnConnect" class="btn primary" aria-label="Conectar wallet" disabled>Conectar Wallet (próximo)</button>
-        </div>
-      </div>
-      <div class="divider"></div>
-      <div class="panel">
-        <div class="notice">
-          Estado: Implementación en curso. La Rune NGF•BTC•AM ha sido emitida. Sin preventa activa. Proyectos en fase de preparación técnica y legal. Toda la información a continuación se presenta con transparencia y sin cifras simuladas.
+        <div class="status-indicator" style="margin-top: 40px; padding: 16px; background: rgba(47, 212, 192, 0.1); border-radius: 16px; display: inline-flex; align-items: center; gap: 12px;">
+          <div style="width: 12px; height: 12px; background: var(--success); border-radius: 50%; animation: pulse 2s infinite;"></div>
+          <span>Estado: Fase de Consolidación • Buscando aliados para Fase Alfa</span>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- Misión, visión y principios -->
-  <section id="mision-vision">
+  <!-- Propuesta de Valor -->
+  <section id="value-proposition">
     <div class="container">
-      <div class="grid grid-2">
-        <div class="panel alt">
-          <h2>Misión</h2>
-          <p>Impulsar un ecosistema económico basado en activos reales tokenizados (RWA), innovación sobre Bitcoin y bienestar humano, generando riqueza sostenible, inclusión financiera y transformación responsable.</p>
-          <div class="acc" style="margin-top:12px">
-            <div class="acc-item">
-              <button class="acc-btn" aria-expanded="false">Principios rectores <span aria-hidden="true">▸</span></button>
-              <div class="acc-panel">
-                <div class="acc-body">
-                  <ul class="muted">
-                    <li>Ética aplicada y cooperación</li>
-                    <li>Producción con propósito</li>
-                    <li>Transparencia y trazabilidad</li>
-                    <li>Descentralización funcional</li>
-                    <li>Innovación responsable</li>
-                    <li>Inclusión financiera</li>
-                    <li>Sostenibilidad ambiental</li>
-                    <li>Cumplimiento legal multijurisdiccional</li>
-                    <li>Gobernanza participativa</li>
-                    <li>Redistribución justa del valor</li>
-                  </ul>
-                  <p class="pill">Principio ético: “Y a tu prójimo como a ti mismo”.</p>
+      <h2>Infraestructura Bitcoin para el Mundo Real</h2>
+      <p class="section-subtitle" style="font-size: 1.25rem; color: var(--muted); max-width: 800px; margin-bottom: 3rem;">
+        Hemos completado la fase fundacional con solidez técnica, marco legal operativo y transparencia radical. 
+        El activo nativo NGF•BTC•AM existe de forma inmutable en Bitcoin Mainnet.
+      </p>
+      
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-icon">
+            <i class="fas fa-layer-group" style="color: var(--primary);"></i>
+          </div>
+          <h3>Capa de Registro Inmutable</h3>
+          <p>Bitcoin L1 con protocolo Runes para inscripción permanente de activos y proyectos tokenizados (RWA). Seguridad y prueba de existencia incensurable.</p>
+          <div class="verify-badge">
+            <i class="fas fa-check-circle"></i>
+            Implementado
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-icon">
+            <i class="fas fa-bolt" style="color: var(--secondary);"></i>
+          </div>
+          <h3>Capa de Operación y Trazabilidad</h3>
+          <p>Bitcoin L2 con Taproot Assets & Lightning Network para funcionalidad, micro-transacciones, distribución de incentivos y trazabilidad operativa en tiempo real.</p>
+          <div class="verify-badge">
+            <i class="fas fa-tools"></i>
+            En Desarrollo
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-icon">
+            <i class="fas fa-handshake" style="color: var(--success);"></i>
+          </div>
+          <h3>Modelo de Gobernanza Híbrida</h3>
+          <p>Estructura legal S.A.S. BIC combinada con participación comunitaria progresiva. Transparencia radical y responsabilidad verificable.</p>
+          <div class="verify-badge">
+            <i class="fas fa-check-circle"></i>
+            Operativo
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cómo Funciona -->
+  <section id="how-it-works" style="background: var(--bg-2);">
+    <div class="container">
+      <h2>Cómo Funciona la Tokenización</h2>
+      <p style="max-width: 800px; margin-bottom: 3rem;">Proceso colaborativo para integrar proyectos reales a nuestra infraestructura Bitcoin:</p>
+      
+      <div class="card-grid">
+        <div class="card">
+          <div class="step-number" style="font-size: 3rem; font-weight: 800; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 20px;">1</div>
+          <h3>Evaluación y Diseño</h3>
+          <p>Analizamos tu proyecto para diseñar el modelo óptimo de tokenización, trazabilidad e incentivos.</p>
+          <ul style="margin-top: 16px; padding-left: 20px; color: var(--muted);">
+            <li>Evaluación de viabilidad técnica</li>
+            <li>Diseño de flujos de valor</li>
+            <li>Plan de integración Bitcoin L1/L2</li>
+          </ul>
+        </div>
+        
+        <div class="card">
+          <div class="step-number" style="font-size: 3rem; font-weight: 800; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 20px;">2</div>
+          <h3>Implementación Técnica</h3>
+          <p>Desarrollamos la infraestructura específica para tu proyecto usando Runes, Taproot Assets y Lightning Network.</p>
+          <ul style="margin-top: 16px; padding-left: 20px; color: var(--muted);">
+            <li>Tokenización en Bitcoin L1</li>
+            <li>Integración con L2 para operaciones</li>
+            <li>Dashboards de trazabilidad</li>
+          </ul>
+        </div>
+        
+        <div class="card">
+          <div class="step-number" style="font-size: 3rem; font-weight: 800; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 20px;">3</div>
+          <h3>Lanzamiento y Operación</h3>
+          <p>Activamos la tokenización y comenzamos la operación con monitoreo constante y reportes transparentes.</p>
+          <ul style="margin-top: 16px; padding-left: 20px; color: var(--muted);">
+            <li>Lanzamiento controlado</li>
+            <li>Monitoreo operativo 24/7</li>
+            <li>Reportes de impacto periódicos</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Activo NGF•BTC•AM -->
+  <section id="asset">
+    <div class="container">
+      <h2>Activo Nativo NGF•BTC•AM</h2>
+      <p style="max-width: 800px; margin-bottom: 3rem;">Rune utilitaria emitida en Bitcoin L1, diseñada para coordinar operaciones reales con trazabilidad en L2.</p>
+      
+      <div class="card-grid">
+        <div class="card">
+          <h3>Especificaciones Técnicas</h3>
+          <div style="margin-top: 20px;">
+            <div style="display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--border);">
+              <span>Nombre</span>
+              <strong>NGF•BTC•AM</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--border);">
+              <span>Protocolo</span>
+              <strong>Bitcoin Runes</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--border);">
+              <span>Supply Total</span>
+              <strong>5,930,000,000</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--border);">
+              <span>Divisibilidad</span>
+              <strong>0 (sin decimales)</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; padding: 12px 0;">
+              <span>Rune ID</span>
+              <strong>#208,645</strong>
+            </div>
+          </div>
+          <a href="https://uniscan.cc/runes/detail/NGF•BTC•AM" target="_blank" class="btn btn-secondary" style="margin-top: 24px; width: 100%;">
+            <i class="fas fa-external-link-alt"></i> Verificar en Explorer
+          </a>
+        </div>
+        
+        <div class="card">
+          <h3>Tokenomics y Distribución</h3>
+          <div style="margin-top: 20px; height: 200px; position: relative;">
+            <canvas id="tokenomicsChart"></canvas>
+          </div>
+          <div class="accordion" style="margin-top: 20px;">
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Ver distribución detallada</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="accordion-content">
+                <div style="padding: 16px 0;">
+                  <div style="display: flex; justify-content: space-between; padding: 8px 0;">
+                    <span>Reserva Estratégica y Liquidez</span>
+                    <strong>30% (1,779M)</strong>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; padding: 8px 0;">
+                    <span>Proyectos Productivos</span>
+                    <strong>25% (1,482.5M)</strong>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; padding: 8px 0;">
+                    <span>Sociales y Ambientales</span>
+                    <strong>15% (889.5M)</strong>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; padding: 8px 0;">
+                    <span>Alianzas y Gobernanza</span>
+                    <strong>10% (593M)</strong>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; padding: 8px 0;">
+                    <span>Tesorería Operativa</span>
+                    <strong>10% (593M)</strong>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="panel alt">
-          <h2>Visión 2025–2030</h2>
-          <p>Ser el principal ecosistema latinoamericano de tokenización con propósito, escalable globalmente y basado en impacto real, conectando producción, economía circular, tecnología y gobernanza ética.</p>
-          <div class="card">
-            <strong>Diferenciales clave</strong>
-            <ul class="muted">
-              <li>Bitcoin-first (Runes L1, Taproot, Lightning L2, Taproot Assets)</li>
-              <li>RWA con retorno operativo y certificación digital (CP-NGF)</li>
-              <li>Reservas auditables: BTC + RWA + liquidez operativa</li>
-              <li>Gobernanza híbrida SAS + DAO funcional por roles</li>
-            </ul>
+      </div>
+      
+      <div class="notice" style="margin-top: 40px; padding: 24px; background: rgba(255, 180, 32, 0.1); border-radius: 16px; border-left: 4px solid var(--warning);">
+        <h4 style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+          <i class="fas fa-exclamation-triangle"></i> Declaración Importante
+        </h4>
+        <p>NGF•BTC•AM es un activo utilitario diseñado para operaciones productivas dentro del ecosistema. No es un security, no representa acciones de la empresa, no otorga derechos societarios y no garantiza retornos financieros.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hall de Transparencia -->
+  <section id="transparency" style="background: var(--bg-2);">
+    <div class="container">
+      <h2>Transparencia Radical</h2>
+      <p style="max-width: 800px; margin-bottom: 3rem;">Toda nuestra información es pública, verificable y auditada:</p>
+      
+      <div class="transparency-grid">
+        <div class="transparency-item">
+          <i class="fas fa-link" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 20px;"></i>
+          <h3>On-Chain</h3>
+          <p>Exploradores públicos para verificación independiente</p>
+          <div style="margin-top: 20px;">
+            <a href="https://uniscan.cc/runes/detail/NGF•BTC•AM" class="btn btn-secondary" style="width: 100%; margin-bottom: 10px;">
+              <i class="fas fa-search"></i> UniScan Explorer
+            </a>
+            <a href="https://mempool.space" class="btn btn-secondary" style="width: 100%;">
+              <i class="fas fa-cube"></i> Mempool.space
+            </a>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- NGF-BTC-AM: activo y utilidades -->
-  <section id="activo">
-    <div class="container">
-      <h2>NGF•BTC•AM — Activo utilitario en Bitcoin</h2>
-      <p class="muted">NGF•BTC•AM es una Rune emitida sobre Bitcoin L1, diseñada para operar con trazabilidad ampliada en L2 (Lightning) y espejo 1:1 en Taproot Assets.</p>
-      <div class="grid grid-3">
-        <div class="card">
-          <strong>Usos funcionales</strong>
-          <ul class="muted">
-            <li>Medio de intercambio interno/externo</li>
-            <li>Swaps con BTC, stablecoins y activos productivos</li>
-            <li>Certificados de Producción (CP-NGF)</li>
-            <li>Gobernanza descentralizada vinculada a impacto</li>
-          </ul>
-        </div>
-        <div class="card">
-          <strong>Arquitectura técnica</strong>
-          <ul class="muted">
-            <li>Emisión: Runes (L1)</li>
-            <li>Pagos: Lightning (L2)</li>
-            <li>Portabilidad: Taproot Assets (espejo 1:1)</li>
-            <li>Custodia: multifirma 3/5 (SAS + auditor + aliado)</li>
-          </ul>
-        </div>
-        <div class="card">
-          <strong>Estado de lanzamiento</strong>
-          <ul class="muted">
-            <li>Rune emitida: NGF•BTC•AM</li>
-            <li>Preventa: si iniciada</li>
-            <li>Distribución: sujeta a vesting y gobernanza</li>
-            <li>Listados públicos: anunciada</li>
-          </ul>
-        </div>
-      </div>
-      <div class="notice" style="margin-top:12px">
-        Nota: Sin promesas de precio ni cifras de adopción. El valor operativo se basa en producción real, trazabilidad y gobernanza ética, no en especulación.
-      </div>
-    </div>
-  </section>
-
-  <!-- Tokenización y economía circular -->
-  <section id="modelo">
-    <div class="container">
-      <h2>Modelo de tokenización y economía circular</h2>
-      <div class="grid grid-2">
-        <div class="panel">
-          <h3>Tokenización RWA</h3>
-          <p class="muted">Activos reales tokenizados: inmuebles, maquinaria, agro, energía, reciclaje. Monetización y trazabilidad en blockchain, con Certificados de Producción.</p>
-          <ul class="muted">
-            <li>Liquidez circular y acceso productivo</li>
-            <li>Trazabilidad desde origen a intercambio</li>
-            <li>Integración con comercio interno/externo</li>
-          </ul>
-        </div>
-        <div class="panel">
-          <h3>Economía circular</h3>
-          <p class="muted">Cada proyecto productivo genera flujo que se reinvierte en nuevos activos, reservas y programas sociales/ambientales.</p>
-          <ul class="muted">
-            <li>Reinyección automática por reglas de gobernanza</li>
-            <li>Fondos de expansión productiva</li>
-            <li>Incentivos por impacto verificable</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Proyecto eje: plástico -> combustible -->
-  <section id="plastico">
-    <div class="container">
-      <h2>Proyecto eje: Plástico → Combustible</h2>
-      <p class="muted">Proyecto en preparación técnica y legal. La ejecución física aún no ha iniciado. Se presenta el alcance propuesto y la trazabilidad prevista.</p>
-      <div class="grid grid-3">
-        <div class="card">
-          <strong>Alcance propuesto</strong>
-          <ul class="muted">
-            <li>Plantas de pirólisis y logística de acopio</li>
-            <li>Compra comunitaria de plástico recuperado</li>
-            <li>Tokenización de subproducto (combustible) y CP-NGF</li>
-          </ul>
-        </div>
-        <div class="card">
-          <strong>Trazabilidad</strong>
-          <ul class="muted">
-            <li>Registros de volumen recuperado</li>
-            <li>Certificados de impacto ambiental</li>
-            <li>Liquidación híbrida BTC/NGF-BTC-AM</li>
-          </ul>
-        </div>
-        <div class="card">
-          <strong>Estado</strong>
-          <ul class="muted">
-            <li>Fase: preparación</li>
-            <li>Infraestructura física: pendiente</li>
-            <li>Alianzas operativas: en diálogo</li>
-          </ul>
-        </div>
-      </div>
-      <div class="notice" style="margin-top:12px">
-        Transparencia: No se presentan cifras de producción ni ingresos hasta iniciar la fase operativa y validación de campo.
-      </div>
-    </div>
-  </section>
-
-  <!-- Tokenomics -->
-  <section id="tokenomics">
-    <div class="container">
-      <h2>Tokenomics del NGF-BTC-AM</h2>
-      <p class="muted">Supply fijo y asignaciones funcionales con vesting ético. Sin distribución activa al público a la fecha.</p>
-      <div class="grid grid-2">
-        <div class="panel">
-          <div class="flex wrap">
-            <div class="card"><strong>Suministro total</strong><div id="supplyTotal" style="font-size:20px;font-weight:800">5,930,000,000</div></div>
-            <div class="card"><strong>Reserva estratégica y liquidez</strong><div id="a1">1,779,000,000</div></div>
-            <div class="card"><strong>Proyectos productivos</strong><div id="a2">1,482,500,000</div></div>
-            <div class="card"><strong>Sociales y ambientales</strong><div id="a3">889,500,000</div></div>
-            <div class="card"><strong>Alianzas y gobernanza</strong><div id="a4">593,000,000</div></div>
-            <div class="card"><strong>Tesorería NESGESFinance</strong><div id="a5">593,000,000</div></div>
-            <div class="card"><strong>Comunidad y staking</strong><div id="a6">296,500,000</div></div>
-            <div class="card"><strong>Equipo y asesores</strong><div id="a7">237,200,000</div></div>
-            <div class="card"><strong>Operativo inmediato</strong><div id="a8">59,300,000</div></div>
+        
+        <div class="transparency-item">
+          <i class="fab fa-github" style="font-size: 2.5rem; color: var(--text); margin-bottom: 20px;"></i>
+          <h3>Código y Documentación</h3>
+          <p>Repositorios públicos con toda la documentación técnica</p>
+          <div style="margin-top: 20px;">
+            <a href="https://github.com/nesgesfinance" class="btn btn-secondary" style="width: 100%;">
+              <i class="fab fa-github"></i> GitHub Oficial
+            </a>
           </div>
-          <div class="divider"></div>
-          <div class="acc">
-            <div class="acc-item">
-              <button class="acc-btn" aria-expanded="false">Política de vesting y seguridad <span aria-hidden="true">▸</span></button>
-              <div class="acc-panel">
-                <div class="acc-body">
-                  <ul class="muted">
-                    <li>Reserva/Tesorería/Equipo: cliff 6 meses + lineal 12–18 meses</li>
-                    <li>Productivos/Sociales/Alianzas: lineal 6–12 meses con hitos de impacto</li>
-                    <li>Comunidad/Staking: distribución por participación verificable; caps anti-ballenas</li>
-                    <li>Multifirma 3/5 (SAS + auditor + aliado) con rotación semestral de claves</li>
-                    <li>Bitácora pública: on-chain + IPFS (PoR, asignaciones y auditorías)</li>
-                  </ul>
-                  <p class="small muted">NGF•BTC•AM es un activo utilitario y no constituye oferta pública de valores.</p>
-                </div>
-              </div>
+        </div>
+        
+        <div class="transparency-item">
+          <i class="fas fa-balance-scale" style="font-size: 2.5rem; color: var(--success); margin-bottom: 20px;"></i>
+          <h3>Marco Legal</h3>
+          <p>Entidad legalmente constituida en Ecuador como S.A.S. BIC</p>
+          <div style="margin-top: 20px;">
+            <div class="verify-badge" style="width: 100%; justify-content: center;">
+              <i class="fas fa-file-contract"></i> RUC: 1091799299001
             </div>
           </div>
-          <div class="notice" style="margin-top:12px">
-            Distribución: por anunciar según roadmap y gobernanza. Sin preventa en curso. Se comunicarán canales oficiales y criterios de acceso.
-          </div>
         </div>
-        <div class="panel">
-          <div class="chart-wrap">
-            <canvas id="pieToken" aria-label="Gráfico circular de tokenomics" role="img"></canvas>
-          </div>
-          <div class="divider"></div>
-          <div class="chart-wrap">
-            <canvas id="barVesting" aria-label="Gráfico de vesting (referencia)" role="img"></canvas>
-          </div>
-          <div class="notice" style="margin-top:12px">
-            Los gráficos son representaciones de asignaciones y ventanas de vesting propuestas; no implican distribución activa ni cronogramas confirmados.
+        
+        <div class="transparency-item">
+          <i class="fas fa-chart-line" style="font-size: 2.5rem; color: var(--secondary); margin-bottom: 20px;"></i>
+          <h3>Reportes Periódicos</h3>
+          <p>Estado del ecosistema, proyectos activos e impacto social/ambiental</p>
+          <div style="margin-top: 20px;">
+            <button class="btn btn-secondary" style="width: 100%;" onclick="alert('Los reportes periódicos estarán disponibles próximamente en nuestra sección de documentación.')">
+              <i class="fas fa-file-alt"></i> Próximamente
+            </button>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Infraestructura Bitcoin -->
-  <section id="infra">
-    <div class="container">
-      <h2>Infraestructura técnica y liquidez (planificada)</h2>
-      <div class="grid grid-3">
-        <div class="card">
-          <strong>Bitcoin L1 + Runes</strong>
-          <p class="muted">Emisión primaria del NGF•BTC•AM con registro y trazabilidad en cadena.</p>
-          <ul class="muted"><li>Taproot y firmas Schnorr</li><li>Supply fijo y política no inflacionaria</li></ul>
-        </div>
-        <div class="card">
-          <strong>Lightning Network (L2)</strong>
-          <p class="muted">Pagos instantáneos, micropagos y comercio interno. Incentivos por uptime y capacidad de canales (en diseño).</p>
-          <ul class="muted"><li>Canales privados/públicos</li><li>POS NFC/QR</li></ul>
-        </div>
-        <div class="card">
-          <strong>Taproot Assets (espejo 1:1)</strong>
-          <p class="muted">Paridad 1:1 con política de emisión/quemado para mantener equivalencia operativa. Compatibilidad con wallets emergentes.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Proyectos (estado de preparación) -->
-  <section id="proyectos">
-    <div class="container">
-      <h2>Proyectos productivos y sociales</h2>
-      <p class="muted">Todos los proyectos están en preparación técnica/legal. Sin ejecución física a la fecha. Se presentan líneas y alcances propuestos.</p>
-      <div class="panel alt">
-        <table class="info-table" aria-label="Listado informativo de líneas de proyecto">
-          <thead>
-            <tr><th>Línea</th><th>Descripción</th><th>Estado</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Plástico → Combustible</td><td>Pirolisis, logística de acopio, tokenización de subproducto</td><td>Pendiente de ejecución</td></tr>
-            <tr><td>Agroindustria tokenizada</td><td>Hidroponía/vertical, trazabilidad y CP-NGF</td><td>Pendiente de ejecución</td></tr>
-            <tr><td>Energía y biomasa</td><td>Micro-redes, biodigestores, mini-hidro</td><td>Pendiente de ejecución</td></tr>
-            <tr><td>Turismo e inmuebles</td><td>Tokenización de ingresos y fraccionamiento</td><td>Pendiente de ejecución</td></tr>
-            <tr><td>Servicios con drones</td><td>Monitoreo agrícola y mapeo</td><td>Pendiente de ejecución</td></tr>
-            <tr><td>Social y comunitario</td><td>Rescate animal, prótesis 3D, vivienda social</td><td>Pendiente de ejecución</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="notice" style="margin-top:12px">
-        Cuando los proyectos ingresen a fase operativa, se publicarán KPIs verificables y reportes de impacto con trazabilidad on-chain.
-      </div>
-    </div>
-  </section>
-
-  <!-- Transparencia y auditoría -->
-  <section id="transparencia">
-    <div class="container">
-      <h2>Transparencia y auditoría</h2>
-      <p class="muted">Pruebas de reserva (BTC, Runes, Taproot Assets), bitácora pública (on-chain + IPFS) y auditorías internas/externas planificadas.</p>
-      <div class="grid grid-3">
-        <div class="card">
-          <strong>Reservas y custodia</strong>
-          <ul class="muted">
-            <li>Custodia multifirma 3/5 (SAS + auditor + aliado)</li>
-            <li>Bitácora on-chain e IPFS</li>
-            <li>Auditorías internas mensuales (plan)</li>
-            <li>Auditorías externas anuales (plan)</li>
-          </ul>
-        </div>
-        <div class="card">
-          <strong>Pruebas y verificaciones</strong>
-          <ul class="muted">
-            <li>PoR BTC (UTXO/merkle proofs)</li>
-            <li>Indexación Runes/LN/Taproot Assets</li>
-            <li>Paridad 1:1 (espejo) — emisión/quemado</li>
-          </ul>
-        </div>
-        <div class="card">
-          <strong>Estado actual</strong>
-          <ul class="muted">
-            <li>Rune emitida</li>
-            <li>Dashboards públicos: por anunciar</li>
-            <li>Enlaces a exploradores: por anunciar</li>
-          </ul>
+      
+      <div style="text-align: center; margin-top: 60px;">
+        <h3>Próximos Proyectos en Preparación</h3>
+        <p style="max-width: 800px; margin: 20px auto;">Estamos diseñando la tokenización de estos proyectos productivos y sociales:</p>
+        
+        <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+          <div class="card" style="text-align: center;">
+            <i class="fas fa-recycle" style="font-size: 2rem; color: var(--success); margin-bottom: 16px;"></i>
+            <h4>Plástico → Combustible</h4>
+            <p style="font-size: 0.9rem;">Pirolisis y economía circular</p>
+          </div>
+          <div class="card" style="text-align: center;">
+            <i class="fas fa-seedling" style="font-size: 2rem; color: var(--success); margin-bottom: 16px;"></i>
+            <h4>Agroindustria Tokenizada</h4>
+            <p style="font-size: 0.9rem;">Hidroponía y trazabilidad con IA</p>
+          </div>
+          <div class="card" style="text-align: center;">
+            <i class="fas fa-solar-panel" style="font-size: 2rem; color: var(--warning); margin-bottom: 16px;"></i>
+            <h4>Energía Renovable</h4>
+            <p style="font-size: 0.9rem;">Micro-redes y biodigestores</p>
+          </div>
+          <div class="card" style="text-align: center;">
+            <i class="fas fa-heart" style="font-size: 2rem; color: var(--danger); margin-bottom: 16px;"></i>
+            <h4>Impacto Social</h4>
+            <p style="font-size: 0.9rem;">Rescate animal y vivienda social</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Gobernanza -->
-  <section id="governance">
+  <!-- Formulario para Aliados -->
+  <section id="postulate">
     <div class="container">
-      <h2>Gobernanza híbrida (SAS + DAO)</h2>
-      <div class="grid grid-2">
-        <div class="panel">
-          <h3>Estructura</h3>
-          <ul class="muted">
-            <li>SAS: representación legal, acuerdos y custodia institucional</li>
-            <li>DAO: voto por rol/función, reputación y comités de validación</li>
-            <li>Multifirma 3/5 para tesorería y reservas</li>
-          </ul>
-        </div>
-        <div class="panel">
-          <h3>Modelo de voto y seguridad</h3>
-          <ul class="muted">
-            <li>Quorum mínimo y límites a delegación</li>
-            <li>Política de incidentes y pausas de distribución</li>
-            <li>Repositorio de hashes (actas, informes) en IPFS</li>
-            <li>KYC/KYB proporcional por niveles de acceso</li>
-          </ul>
-          <p class="small muted">NGF•BTC•AM es utilitario; evita clasificación de valor bursátil. Operativa según marcos vigentes por jurisdicción.</p>
-        </div>
+      <h2>Postula tu Proyecto para la Fase Alfa</h2>
+      <p style="max-width: 800px; margin-bottom: 3rem;">¿Tienes un proyecto productivo o social con ubicación física y capacidad operativa? Únete a nuestra Fase Alfa para tokenización verificable.</p>
+      
+      <div class="project-form">
+        <form id="projectForm">
+          <div class="form-group">
+            <label class="form-label" for="projectName">Nombre del Proyecto *</label>
+            <input type="text" id="projectName" class="form-input" required placeholder="Ej: Planta de Reciclaje Comunitario">
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="projectType">Tipo de Proyecto *</label>
+            <select id="projectType" class="form-select" required>
+              <option value="">Seleccionar categoría</option>
+              <option value="productivo">Productivo (agro, industria, energía)</option>
+              <option value="social">Social (educación, salud, comunidad)</option>
+              <option value="ambiental">Ambiental (conservación, reciclaje)</option>
+              <option value="turismo">Turismo Sostenible</option>
+              <option value="otro">Otro</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="projectLocation">Ubicación Física *</label>
+            <input type="text" id="projectLocation" class="form-input" required placeholder="Ciudad, País">
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="projectDescription">Descripción del Proyecto *</label>
+            <textarea id="projectDescription" class="form-textarea" rows="4" required placeholder="Describe tu proyecto, objetivos, etapa actual y equipo..."></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="contactEmail">Email de Contacto *</label>
+            <input type="email" id="contactEmail" class="form-input" required placeholder="tu@email.com">
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="contactTelegram">Telegram / WhatsApp (opcional)</label>
+            <input type="text" id="contactTelegram" class="form-input" placeholder="@usuario o +1234567890">
+          </div>
+          
+          <div style="margin-top: 32px; text-align: center;">
+            <button type="submit" class="btn btn-primary" style="padding: 18px 48px; font-size: 1.1rem;">
+              <i class="fas fa-paper-plane"></i> Enviar Postulación
+            </button>
+            <p style="margin-top: 16px; font-size: 0.9rem; color: var(--muted);">
+              Nos pondremos en contacto en un plazo máximo de 7 días hábiles.
+            </p>
+          </div>
+        </form>
+      </div>
+      
+      <div class="notice" style="margin-top: 40px; padding: 24px; background: rgba(79, 184, 255, 0.1); border-radius: 16px; border-left: 4px solid var(--primary);">
+        <h4 style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+          <i class="fas fa-info-circle"></i> ¿Qué buscamos en un proyecto piloto?
+        </h4>
+        <ul style="columns: 2; column-gap: 40px; margin-top: 12px; color: var(--muted);">
+          <li>Ubicación física verificable</li>
+          <li>Capacidad operativa demostrable</li>
+          <li>Impacto social o ambiental positivo</li>
+          <li>Equipo comprometido</li>
+          <li>Viabilidad económica</li>
+          <li>Alineación con principios éticos</li>
+          <li>Interés en innovación tecnológica</li>
+          <li>Transparencia en operaciones</li>
+        </ul>
+        <p style="margin-top: 16px; color: var(--muted);">
+          No es necesario tener conocimientos técnicos en blockchain. Nosotros proporcionamos la infraestructura y el expertise.
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- Roadmap -->
-  <section id="roadmap">
+  <!-- FAQ -->
+  <section id="faq" style="background: var(--bg-2);">
     <div class="container">
-      <h2>Roadmap institucional</h2>
-      <div class="grid grid-3">
-        <div class="card">
-          <strong>Fase técnica (en curso)</strong>
-          <ul class="muted">
-            <li>Emisión NGF-BTC-AM (Runes)</li>
-            <li>Diseño paridad Taproot Assets 1:1</li>
-            <li>Especificaciones de Lightning y multifirma</li>
-            <li>APIs y compatibilidad wallets (plan)</li>
-          </ul>
+      <h2>Preguntas Frecuentes</h2>
+      <p style="max-width: 800px; margin-bottom: 3rem;">Respuestas claras a las dudas más comunes sobre nuestro ecosistema.</p>
+      
+      <div class="accordion">
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <span>¿NESGESFinance es una entidad financiera o un fondo de inversión?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="accordion-content">
+            <p>No. Somos una Sociedad de Beneficio e Interés Colectivo (S.A.S. BIC) que diseña y opera infraestructura tecnológica para tokenización de proyectos reales. No somos banco, fondo de inversión, emisor de valores ni captamos ahorro público.</p>
+          </div>
         </div>
-        <div class="card">
-          <strong>Adopción inicial (plan)</strong>
-          <ul class="muted">
-            <li>Seed/colocación privada controlada</li>
-            <li>Casos piloto: plástico→combustible, agro, turismo</li>
-            <li>CP-NGF y comercio interno</li>
-          </ul>
+        
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <span>¿Qué costos implica tokenizar un proyecto con ustedes?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="accordion-content">
+            <p>Para proyectos seleccionados en la Fase Alfa, cubrimos los costos de desarrollo de infraestructura. Los proyectos deben cubrir sus costos operativos propios. En fases posteriores, implementaremos un modelo de costos compartidos basado en el valor generado.</p>
+          </div>
         </div>
-        <div class="card">
-          <strong>Expansión LATAM/Global (plan)</strong>
-          <ul class="muted">
-            <li>Delegaciones y nodos aliados</li>
-            <li>Fondos verdes y multilaterales</li>
-            <li>Comercio tokenizado y exportación</li>
-          </ul>
+        
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <span>¿Necesito conocimientos técnicos en blockchain para participar?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="accordion-content">
+            <p>No es necesario. Nosotros proporcionamos toda la infraestructura técnica, desarrollo e integración. Tu equipo puede enfocarse en lo que mejor hace: operar el proyecto real. Proporcionamos capacitación y soporte continuo.</p>
+          </div>
+        </div>
+        
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <span>¿Cómo se maneja la custodia de los activos tokenizados?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="accordion-content">
+            <p>Implementamos custodia multifirma 3/5 (SAS + auditor externo + aliado estratégico) con rotación semestral de firmantes. Todos los movimientos son verificables on-chain y registrados en bitácora pública (IPFS + blockchain).</p>
+          </div>
+        </div>
+        
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <span>¿Qué tipo de proyectos son ideales para la tokenización?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="accordion-content">
+            <p>Proyectos con: 1) Ubicación física verificable, 2) Flujos de producción/operación reales, 3) Impacto social/ambiental positivo, 4) Equipo comprometido, 5) Interés en transparencia radical, 6) Viabilidad económica demostrable.</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Preguntas frecuentes -->
-  <section id="faq">
-    <div class="container">
-      <h2>Preguntas frecuentes</h2>
-      <div class="acc">
-        <div class="acc-item">
-          <button class="acc-btn" aria-expanded="false">¿Qué es NGF•BTC•AM? <span aria-hidden="true">▸</span></button>
-          <div class="acc-panel"><div class="acc-body"><p class="muted">Una Rune utilitaria emitida en Bitcoin L1, con trazabilidad ampliada en Lightning y espejo en Taproot Assets. Diseñada para intercambio, gobernanza e integración productiva.</p></div></div>
-        </div>
-        <div class="acc-item">
-          <button class="acc-btn" aria-expanded="false">¿Hay preventa activa? <span aria-hidden="true">▸</span></button>
-          <div class="acc-panel"><div class="acc-body"><p class="muted">No. La preventa aún no está activa. Cualquier distribución futura seguirá vesting, gobernanza y comunicación oficial.</p></div></div>
-        </div>
-        <div class="acc-item">
-          <button class="acc-btn" aria-expanded="false">¿En qué se respalda el ecosistema? <span aria-hidden="true">▸</span></button>
-          <div class="acc-panel"><div class="acc-body"><p class="muted">BTC (custodia multifirma), activos reales tokenizados (RWA) y liquidez operativa planificada. Se publicarán pruebas de reserva y auditorías.</p></div></div>
-        </div>
-        <div class="acc-item">
-          <button class="acc-btn" aria-expanded="false">¿Cómo verificar transparencia? <span aria-hidden="true">▸</span></button>
-          <div class="acc-panel"><div class="acc-body"><p class="muted">Dashboard público, PoR, auditorías e IPFS con hashes verificables. Enlaces oficiales serán anunciados.</p></div></div>
-        </div>
-        <div class="acc-item">
-          <button class="acc-btn" aria-expanded="false">¿Requiere KYC/KYB? <span aria-hidden="true">▸</span></button>
-          <div class="acc-panel"><div class="acc-body"><p class="muted">Modelo proporcional por niveles: retail con límites, empresarial/institucional con verificación progresiva.</p></div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Legal y privacidad -->
-  <section id="legal">
-    <div class="container">
-      <h2>Marco legal y política de privacidad</h2>
-      <div class="grid grid-2">
-        <div class="panel">
-          <h3>Marco legal</h3>
-          <ul class="muted">
-            <li>Estructura matriz: Sociedad por Acciones Simplificada (S.A.S.)</li>
-            <li>Operativa: acuerdos privados, DAO funcional y custodia híbrida</li>
-            <li>Expansión multijurisdiccional: LATAM + UE (plan)</li>
-            <li>Uso utilitario: no oferta pública de valores</li>
-          </ul>
-        </div>
-        <div class="panel">
-          <h3>Política de privacidad (resumen)</h3>
-          <ul class="muted">
-            <li>Recopilación mínima de datos para contacto y alianzas</li>
-            <li>Uso proporcional y consentido</li>
-            <li>Protección y acceso controlado</li>
-            <li>Transparencia en reportes y auditorías</li>
-          </ul>
-          <p class="small muted">La política completa será publicada con detalles, derechos de los usuarios y canales de solicitud.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contacto -->
-  <section id="contacto">
-    <div class="container">
-      <h2>Contacto institucional</h2>
-      <div class="grid grid-3">
-        <div class="card">
-          <strong>Correos</strong>
-          <ul class="muted">
-            <li>info@nesgesfinance.org</li>
-            <li>info.nesgesfinance@gmail.com</li>
-          </ul>
-        </div>
-        <div class="card">
-          <strong>Web y redes</strong>
-          <ul class="muted">
-            <li><a href="https://nesgesfinance.github.io" target="_blank" rel="noopener">nesgesfinance.github.io</a></li>
-            <li><a href="https://x.com/nesngesfinance" target="_blank" rel="noopener">@nesngesfinance</a></li>
-          </ul>
-        </div>
-        <div class="card">
-          <strong>Alianzas</strong>
-          <p class="muted">Empresas, nodos, educadores, donantes y validadores pueden escribirnos para explorar integración técnica y proyectos piloto.</p>
-        </div>
+      
+      <div style="text-align: center; margin-top: 60px;">
+        <p style="font-size: 1.25rem; margin-bottom: 20px;">¿Tienes otra pregunta?</p>
+        <a href="mailto:info.nesgesfinance@gmail.com" class="btn btn-secondary">
+          <i class="fas fa-envelope"></i> Contactar por Email
+        </a>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer role="contentinfo">
-    <div class="container footer-grid">
-      <div>
-        <p>© 2025 NESGESFinance Ecosystem S.A.S. — Tokenización con Propósito. Todos los derechos reservados.</p>
-        <p class="small muted">Transparencia, impacto real y gobernanza ética. Estado: implementación en curso.</p>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-links">
+          <h4>NESGESFinance Ecosystem</h4>
+          <p style="margin-top: 16px; color: var(--muted);">
+            Tokenización con propósito sobre Bitcoin. 
+            Infraestructura ética, transparente y verificable para proyectos reales.
+          </p>
+          <div style="display: flex; gap: 16px; margin-top: 24px;">
+            <a href="https://x.com/nesgesfinance" aria-label="Twitter" style="color: var(--muted); font-size: 1.25rem;">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://github.com/nesgesfinance" aria-label="GitHub" style="color: var(--muted); font-size: 1.25rem;">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://linkedin.com/company/nesgesfinance" aria-label="LinkedIn" style="color: var(--muted); font-size: 1.25rem;">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-links">
+          <h4>Recursos</h4>
+          <ul>
+            <li><a href="#value-proposition">Infraestructura</a></li>
+            <li><a href="#how-it-works">Cómo Funciona</a></li>
+            <li><a href="#asset">Activo NGF•BTC•AM</a></li>
+            <li><a href="#transparency">Transparencia</a></li>
+            <li><a href="https://github.com/nesgesfinance/whitepaper/blob/main/Whitepaper_Oficial.pdf" target="_blank">Whitepaper Oficial</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#" onclick="alert('Documento en preparación')">Términos de Servicio</a></li>
+            <li><a href="#" onclick="alert('Documento en preparación')">Política de Privacidad</a></li>
+            <li><a href="#faq">Preguntas Frecuentes</a></li>
+            <li><a href="#transparency">Verificación Legal</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links">
+          <h4>Contacto</h4>
+          <ul>
+            <li><a href="mailto:info.nesgesfinance@gmail.com">info.nesgesfinance@gmail.com</a></li>
+            <li><a href="mailto:alianzas@nesgesfinance.org">alianzas@nesgesfinance.org</a></li>
+            <li>Imbabura - Ibarra, Ecuador</li>
+            <li>RUC: 1091799299001</li>
+          </ul>
+        </div>
       </div>
-      <div>
-        <h4>Recursos</h4>
-        <ul>
-          <li><a href="#activo">NGF•BTC•AM</a></li>
-          <li><a href="#modelo">Tokenización</a></li>
-          <li><a href="#plastico">Plástico→Combustible</a></li>
-          <li><a href="#tokenomics">Tokenomics</a></li>
-          <li><a href="#transparencia">Transparencia</a></li>
-          <li><a href="#governance">Gobernanza</a></li>
-          <li><a href="#roadmap">Roadmap</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#legal">Legal y privacidad</a></li>
-          <li><a href="#contacto">Contacto</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Estado</h4>
-        <ul>
-          <li>Preventa: activa</li>
-          <li>Distribución:  ok</li>
-          <li>Dashboards: ok</li>
-        </ul>
+      
+      <div style="border-top: 1px solid var(--border); margin-top: 60px; padding-top: 40px; text-align: center; color: var(--muted);">
+        <p>© 2025-2026 NESGESFinance Ecosystem S.A.S. Sociedad de Beneficio e Interés Colectivo.</p>
+        <p style="margin-top: 12px; font-size: 0.9rem;">
+          "Y a tu prójimo como a ti mismo" — Transparencia radical, impacto real, tecnología con propósito.
+        </p>
+        <p style="margin-top: 12px; font-size: 0.9rem;">
+          NGF•BTC•AM es un activo utilitario. No es un security ni constituye oferta pública de valores.
+        </p>
       </div>
     </div>
   </footer>
 
   <!-- Scripts -->
   <script>
-    /* Tokenomics (gráficos de referencia, sin cifras simuladas adicionales) */
-    document.addEventListener("DOMContentLoaded", ()=>{
-      const pie = document.getElementById("pieToken");
-      const bar = document.getElementById("barVesting");
-      if(pie && window.Chart){
-        new Chart(pie, {
-          type: "pie",
-          data: {
-            labels: [
-              "Reserva estratégica y liquidez",
-              "Proyectos productivos",
-              "Sociales y ambientales",
-              "Alianzas y gobernanza",
-              "Tesorería NESGESFinance",
-              "Comunidad y staking",
-              "Equipo y asesores",
-              "Operativo inmediato"
+    // Inicialización de gráficos
+    document.addEventListener('DOMContentLoaded', function() {
+      // Gráfico de Tokenomics
+      const tokenomicsCtx = document.getElementById('tokenomicsChart').getContext('2d');
+      new Chart(tokenomicsCtx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Reserva', 'Productivos', 'Social', 'Alianzas', 'Tesorería', 'Comunidad', 'Equipo', 'Operativo'],
+          datasets: [{
+            data: [30, 25, 15, 10, 10, 5, 4, 1],
+            backgroundColor: [
+              '#4fb8ff', '#2fd4c0', '#9e6cff', '#ffb020', 
+              '#2ecc71', '#ff7aa2', '#7f8cff', '#7f7f7f'
             ],
-            datasets: [{
-              data: [30,25,15,10,10,5,4,1],
-              backgroundColor: ["#4fb8ff","#2fd4c0","#9e6cff","#ffb020","#2ecc71","#ff7aa2","#7f8cff","#7f7f7f"]
-            }]
+            borderWidth: 0,
+            hoverOffset: 15
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              position: 'bottom',
+              labels: {
+                color: '#e6ecff',
+                padding: 20,
+                font: {
+                  size: 12
+                }
+              }
+            },
+            tooltip: {
+              callbacks: {
+                label: function(context) {
+                  const label = context.label || '';
+                  const value = context.raw || 0;
+                  return `${label}: ${value}%`;
+                }
+              }
+            }
           },
-          options: {
-            responsive:true,
-            plugins:{ legend:{position:"bottom", labels:{color:"#e6ecff"}} }
-          }
-        });
-      }
-      if(bar && window.Chart){
-        new Chart(bar, {
-          type: "bar",
-          data: {
-            labels: ["Reserva","Productivos","Sociales","Alianzas","Tesorería","Comunidad","Equipo","Operativo"],
-            datasets: [{
-              label: "Cliff (meses)",
-              data: [6,0,0,0,6,0,6,0],
-              backgroundColor: "rgba(79,184,255,.6)"
-            },{
-              label: "Lineal (meses)",
-              data: [18,12,12,18,18,12,18,6],
-              backgroundColor: "rgba(158,108,255,.6)"
-            }]
-          },
-          options: {
-            responsive:true,
-            scales:{ x:{ticks:{color:"#e6ecff"}}, y:{ticks:{color:"#e6ecff"}} },
-            plugins:{ legend:{labels:{color:"#e6ecff"}} }
-          }
-        });
-      }
-    });
+          cutout: '65%'
+        }
+      });
 
-    /* Acordeón accesible */
-    document.querySelectorAll(".acc-btn").forEach(btn=>{
-      btn.addEventListener("click",()=>{
-        const panel = btn.nextElementSibling;
-        const open = panel.classList.toggle("open");
-        panel.style.maxHeight = open ? panel.scrollHeight + "px" : 0;
-        btn.setAttribute("aria-expanded", open ? "true" : "false");
+      // Acordeón interactivo
+      document.querySelectorAll('.accordion-header').forEach(header => {
+        header.addEventListener('click', function() {
+          const content = this.nextElementSibling;
+          const icon = this.querySelector('i');
+          
+          // Cerrar otros acordeones
+          document.querySelectorAll('.accordion-content').forEach(item => {
+            if (item !== content && item.classList.contains('open')) {
+              item.classList.remove('open');
+              item.previousElementSibling.querySelector('i').style.transform = 'rotate(0deg)';
+            }
+          });
+          
+          // Toggle actual
+          content.classList.toggle('open');
+          icon.style.transform = content.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+        });
+      });
+
+      // Manejo de formulario
+      const projectForm = document.getElementById('projectForm');
+      if (projectForm) {
+        projectForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          // Aquí normalmente enviarías los datos a un servidor
+          // Por ahora mostramos un mensaje de confirmación
+          alert('¡Gracias por tu interés! Hemos recibido tu postulación. Nos pondremos en contacto contigo en un plazo máximo de 7 días hábiles.');
+          projectForm.reset();
+        });
+      }
+
+      // Animación de scroll suave para enlaces internos
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 100,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+
+      // Animación de elementos al hacer scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, observerOptions);
+
+      // Observar tarjetas para animación
+      document.querySelectorAll('.card').forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(card);
       });
     });
 
-    /* Botón wallet deshabilitado hasta integración */
-    document.getElementById("btnConnect").addEventListener("click",()=>{
-      alert("La integración de wallet (Taproot/Runes/Lightning) se habilitará próximamente. Mantente atento a los canales oficiales.");
-    });
+    // Animación de pulso para el indicador de estado
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes pulse {
+        0% { opacity: 1; }
+        50% { opacity: 0.5; }
+        100% { opacity: 1; }
+      }
+    `;
+    document.head.appendChild(style);
   </script>
 </body>
 </html>
