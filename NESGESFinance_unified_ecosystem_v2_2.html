@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#07070b" />
+  <meta name="description" content="NESGESFinance Ecosystem v2.2 — Informe maestro HTML unificado: Bitcoin, NGF•BTC•AM, Runes, Ordinals, RWA, RedenHousesEnergy, Oregon RWA, GitHub, Exchange, Dashboard y documentación legal." />
+  <meta name="keywords" content="NESGESFinance, NGF BTC AM, Bitcoin Runes, Ordinals, RWA, RedenHousesEnergy, Tokenización con Propósito, Bitcoin, GitHub, Mempool Exchange" />
+  <meta name="author" content="NESGESFinance Ecosystem S.A.S. & LLC" />
+  <title>NESGESFinance Ecosystem v2.2 | Informe Maestro Técnico Unificado</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+
+  <style>
+    :root {
+      --bg: #07070b;
+      --bg2: #0e111b;
+      --panel: rgba(15, 19, 31, 0.88);
+      --panel2: rgba(23, 29, 46, 0.92);
+      --border: rgba(212, 175, 55, 0.24);
+      --border2: rgba(90, 177, 255, 0.22);
+      --text: #f4f7ff;
+      --muted: #aab3c7;
+      --gold: #d4af37;
+      --gold2: #f3d77a;
+      --blue: #4facfe;
+      --violet: #9e6cff;
+      --green: #2fd4c0;
+      --red: #ff6b6b;
+      --warning: #ffca28;
+      --shadow: 0 24px 75px rgba(0, 0, 0, 0.45);
+      --radius: 22px;
+      --grad: linear-gradient(135deg, var(--gold), var(--blue), var(--violet));
+      --grad2: linear-gradient(135deg, rgba(212,175,55,.25), rgba(79,172,254,.15), rgba(158,108,255,.13));
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 12% 8%, rgba(212,175,55,.17), transparent 30%),
+        radial-gradient(circle at 86% 12%, rgba(79,172,254,.13), transparent 32%),
+        radial-gradient(circle at 50% 96%, rgba(158,108,255,.14), transparent 34%),
+        var(--bg);
+      font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+      line-height: 1.68;
+    }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container-wide { width: min(1240px, calc(100% - 32px)); margin-inline: auto; }
+    .topbar {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(7,7,11,.82);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .nav-scroll { display: flex; gap: 16px; overflow-x: auto; padding: 12px 0; scrollbar-width: thin; }
+    .nav-scroll a { white-space: nowrap; color: var(--muted); font-size: .92rem; padding: 6px 8px; border-radius: 999px; }
+    .nav-scroll a:hover { color: var(--text); background: rgba(255,255,255,.05); text-decoration: none; }
+    .hero { padding: 84px 0 58px; border-bottom: 1px solid rgba(255,255,255,.08); }
+    .badge-soft {
+      display: inline-flex; align-items: center; gap: 9px;
+      border: 1px solid var(--border);
+      background: rgba(212,175,55,.08);
+      color: var(--gold2);
+      padding: 8px 14px; border-radius: 999px; font-size: .9rem;
+    }
+    .hero h1 {
+      max-width: 1120px; margin: 22px 0 18px;
+      font-size: clamp(2.1rem, 6.2vw, 5.2rem);
+      line-height: 1.02; letter-spacing: -.055em;
+      background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .lead { max-width: 940px; color: var(--muted); font-size: clamp(1.02rem, 2vw, 1.25rem); }
+    .cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .btn-ng {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1px solid var(--border); border-radius: 14px;
+      padding: 12px 16px; color: var(--text); background: rgba(255,255,255,.04);
+      font-weight: 650;
+    }
+    .btn-ng.primary { color: #090b12; border: 0; background: linear-gradient(135deg, var(--gold), var(--blue)); }
+    .btn-ng:hover { transform: translateY(-1px); text-decoration: none; border-color: rgba(212,175,55,.5); }
+    .section { padding: 62px 0; border-bottom: 1px solid rgba(255,255,255,.08); }
+    h2 { font-size: clamp(1.7rem, 3.2vw, 2.75rem); letter-spacing: -.035em; margin: 0 0 18px; }
+    h3 { font-size: 1.25rem; margin: 26px 0 12px; }
+    p, li { color: var(--muted); }
+    .muted { color: var(--muted); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(245px, 1fr)); gap: 18px; margin-top: 22px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 18px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 18px; }
+    @media (max-width: 920px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+    .card-ng {
+      background: var(--panel); border: 1px solid rgba(255,255,255,.10);
+      border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow);
+    }
+    .card-ng.gold { border-color: var(--border); background: linear-gradient(135deg, rgba(212,175,55,.10), rgba(15,19,31,.88)); }
+    .card-ng.blue { border-color: var(--border2); background: linear-gradient(135deg, rgba(79,172,254,.09), rgba(15,19,31,.88)); }
+    .card-ng h3 { margin-top: 0; color: #fff; }
+    .kpi { font-size: 2rem; font-weight: 850; color: var(--gold2); line-height: 1.1; }
+    .pill { display: inline-flex; align-items: center; gap: 7px; border: 1px solid rgba(255,255,255,.1); color: var(--muted); padding: 6px 10px; border-radius: 999px; margin: 4px 5px 4px 0; font-size: .88rem; }
+    .notice {
+      border-left: 4px solid var(--gold); background: rgba(212,175,55,.08);
+      border-radius: 14px; padding: 16px 18px; color: var(--muted); margin: 18px 0;
+    }
+    .danger { border-left-color: var(--red); background: rgba(255,107,107,.08); }
+    .ok { border-left-color: var(--green); background: rgba(47,212,192,.08); }
+    .table-wrap { overflow-x: auto; border-radius: 18px; border: 1px solid rgba(255,255,255,.09); margin-top: 18px; }
+    table { width: 100%; border-collapse: collapse; background: rgba(15,19,31,.65); }
+    th, td { padding: 13px 14px; border-bottom: 1px solid rgba(255,255,255,.08); color: var(--muted); vertical-align: top; }
+    th { color: var(--text); background: rgba(255,255,255,.04); font-weight: 720; }
+    code, pre { font-family: var(--mono); }
+    code { color: var(--gold2); }
+    pre {
+      background: #090b12; border: 1px solid rgba(255,255,255,.1); color: #d8e6ff;
+      padding: 16px; border-radius: 16px; overflow-x: auto; font-size: .87rem;
+    }
+    .copybar { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 8px; }
+    .copy-btn { border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.05); color: var(--text); border-radius: 10px; padding: 6px 10px; font-size: .82rem; }
+    .timeline { position: relative; margin-top: 18px; }
+    .timeline:before { content:""; position:absolute; left: 14px; top: 0; bottom: 0; width: 2px; background: rgba(212,175,55,.35); }
+    .tl-item { position: relative; padding-left: 44px; margin: 0 0 22px; }
+    .tl-item:before { content:""; position:absolute; left: 6px; top: 5px; width: 18px; height: 18px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 5px rgba(212,175,55,.12); }
+    .status-pill { color: var(--gold2); border: 1px solid var(--border); background: rgba(212,175,55,.08); border-radius: 999px; padding: 7px 11px; display: inline-flex; gap: 8px; align-items: center; font-size: .85rem; }
+    .chart-panel { height: 340px; padding: 12px; }
+    .footer { padding: 42px 0; color: var(--muted); text-align: center; }
+    .brand-mark {
+      width: 58px; height: 58px; border-radius: 18px; display: grid; place-items: center;
+      border: 1px solid var(--border); background: var(--grad2); color: var(--gold2); font-weight: 900;
+      letter-spacing: -1px;
+    }
+    .mini-list { margin: 0; padding-left: 1.1rem; }
+    .mini-list li { margin: 5px 0; }
+    .accordion-button, .accordion-item { background: rgba(15,19,31,.88); color: var(--text); }
+    .accordion-item { border: 1px solid rgba(255,255,255,.1); border-radius: 14px !important; overflow: hidden; margin-bottom: 10px; }
+    .accordion-button:not(.collapsed) { background: rgba(212,175,55,.08); color: #fff; box-shadow: none; }
+    .accordion-button:focus { box-shadow: 0 0 0 .2rem rgba(212,175,55,.15); }
+    .form-control { background: #0b0e16; border: 1px solid rgba(255,255,255,.12); color: var(--text); border-radius: 12px; }
+    .form-control:focus { background:#0b0e16; color: var(--text); border-color: var(--gold); box-shadow: 0 0 0 .2rem rgba(212,175,55,.12); }
+  </style>
+</head>
+<body>
+  <header class="hero" id="inicio">
+    <div class="container-wide">
+      <span class="badge-soft"><i class="fa-brands fa-bitcoin"></i> Bitcoin Mainnet • Runes • Ordinals • RWA • v2.2</span>
+      <h1>NESGESFinance Ecosystem: infraestructura Bitcoin-first para tokenización con propósito.</h1>
+      <p class="lead">HTML maestro unificado que integra la narrativa institucional, el Whitepaper v2.0, el informe maestro, NGF•BTC•AM, Ordinales de Proyecto, RWA Oregon, RedenHousesEnergy, dashboard wallet, GitHub, verificación on-chain y NESGESFinance Mempool Exchange.</p>
+      <div class="cta">
+        <a class="btn-ng primary" href="#arquitectura"><i class="fa-solid fa-diagram-project"></i> Arquitectura</a>
+        <a class="btn-ng" href="#ngf"><i class="fa-solid fa-coins"></i> NGF•BTC•AM</a>
+        <a class="btn-ng" href="#rwa"><i class="fa-solid fa-building-columns"></i> RWA</a>
+        <a class="btn-ng" href="#reden"><i class="fa-solid fa-bolt"></i> RedenHousesEnergy</a>
+        <a class="btn-ng" href="#github"><i class="fa-brands fa-github"></i> GitHub</a>
+      </div>
+    </div>
+  </header>
+
+  <nav class="topbar">
+    <div class="container-wide nav-scroll">
+      <a href="#inicio">Inicio</a>
+      <a href="#indice">Índice</a>
+      <a href="#identidad">Identidad</a>
+      <a href="#arquitectura">Arquitectura</a>
+      <a href="#bitcoin">Bitcoin</a>
+      <a href="#ngf">NGF•BTC•AM</a>
+      <a href="#ordinals">Ordinals</a>
+      <a href="#rwa">RWA</a>
+      <a href="#oregon">Oregon</a>
+      <a href="#reden">RedenHousesEnergy</a>
+      <a href="#exchange">Exchange</a>
+      <a href="#dashboard">Dashboard</a>
+      <a href="#github">GitHub</a>
+      <a href="#riesgos">Riesgos</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#legal">Legal</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="section" id="indice">
+      <div class="container-wide">
+        <h2>Índice ejecutivo</h2>
+        <p>Este documento consolida el contenido desarrollado durante el proceso técnico de NESGESFinance. Está diseñado para publicarse como página HTML institucional, informe maestro web y base de documentación GitHub.</p>
+        <div class="grid-3">
+          <div class="card-ng"><h3>1. Institucional</h3><ul class="mini-list"><li>NESGESFinance S.A.S. & LLC</li><li>S.A.S. BIC Ecuador</li><li>LLC Estados Unidos</li><li>Tokenización con propósito</li></ul></div>
+          <div class="card-ng"><h3>2. Bitcoin</h3><ul class="mini-list"><li>Bitcoin Layer 1</li><li>Taproot</li><li>Runes</li><li>Ordinals</li><li>OP_RETURN / hashes</li></ul></div>
+          <div class="card-ng"><h3>3. RWA</h3><ul class="mini-list"><li>Inmuebles</li><li>Energía</li><li>Reciclaje</li><li>Agroindustria</li><li>Impacto social</li></ul></div>
+          <div class="card-ng"><h3>4. Activos</h3><ul class="mini-list"><li>NGF•BTC•AM</li><li>Ordinales de Proyecto</li><li>Metadata JSON</li><li>TXID verificable</li></ul></div>
+          <div class="card-ng"><h3>5. Tecnología</h3><ul class="mini-list"><li>GitHub</li><li>Dashboard wallet</li><li>Exchange progresivo</li><li>Verificación on-chain</li></ul></div>
+          <div class="card-ng"><h3>6. Cumplimiento</h3><ul class="mini-list"><li>KYC/AML</li><li>SPV</li><li>Disclaimers</li><li>Auditoría</li><li>Riesgos</li></ul></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="identidad">
+      <div class="container-wide">
+        <h2>Identidad institucional</h2>
+        <div class="grid-2">
+          <div class="card-ng gold">
+            <div class="d-flex align-items-center gap-3 mb-3"><div class="brand-mark">NG</div><div><h3 class="mb-0">NESGESFinance Ecosystem</h3><p class="mb-0">S.A.S. & LLC</p></div></div>
+            <p>NESGESFinance se estructura como una infraestructura empresarial, tecnológica, documental y blockchain para conectar activos reales con Bitcoin, trazabilidad pública, tokenización responsable, economía circular e impacto social.</p>
+            <div><span class="pill">Bitcoin-first</span><span class="pill">RWA</span><span class="pill">Runes</span><span class="pill">Ordinals</span><span class="pill">GitHub</span><span class="pill">Economía circular</span></div>
+          </div>
+          <div class="card-ng blue">
+            <h3>Principio rector</h3>
+            <p class="kpi">“Y a tu prójimo como a ti mismo.”</p>
+            <p>El principio institucional se traduce en transparencia verificable, ética operativa, rechazo de promesas especulativas, responsabilidad tecnológica y proyectos con impacto social, ambiental y productivo.</p>
+          </div>
+        </div>
+        <div class="notice ok"><strong>Formulación pública recomendada:</strong> NESGESFinance Ecosystem es una infraestructura Bitcoin-first para tokenización responsable de activos reales mediante NGF•BTC•AM, Ordinales de Proyecto, metadata, hashes, SPV, GitHub, dashboards y trazabilidad on-chain.</div>
+      </div>
+    </section>
+
+    <section class="section" id="arquitectura">
+      <div class="container-wide">
+        <h2>Arquitectura general del ecosistema</h2>
+        <p>El modelo separa capas institucionales, legales, técnicas, documentales y operativas para evitar confundir utilidad, derechos económicos, propiedad legal, metadata y verificación blockchain.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Capa</th><th>Contenido</th><th>Función</th></tr></thead>
+            <tbody>
+              <tr><td>Institucional</td><td>S.A.S. BIC Ecuador + LLC EE.UU.</td><td>Coordinación, SPV, separación de riesgos.</td></tr>
+              <tr><td>Legal-documental</td><td>Reglamentos, contratos, disclaimers, hashes.</td><td>Fuente formal de derechos y obligaciones.</td></tr>
+              <tr><td>Bitcoin</td><td>L1, Taproot, Runes, Ordinals, OP_RETURN.</td><td>Inmutabilidad, timestamp, trazabilidad pública.</td></tr>
+              <tr><td>Activos digitales</td><td>NGF•BTC•AM + Ordinales.</td><td>Utilidad ecosistémica y proyecto específico.</td></tr>
+              <tr><td>RWA</td><td>Inmuebles, energía, reciclaje, agroindustria.</td><td>Conexión con economía real verificable.</td></tr>
+              <tr><td>Web / Exchange</td><td>nesgesfinance.org + mempool exchange.</td><td>Presentación, verificación y operación progresiva.</td></tr>
+              <tr><td>Transparencia</td><td>GitHub, dashboards, TXID, reportes.</td><td>Control de versiones y auditoría pública.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="bitcoin">
+      <div class="container-wide">
+        <h2>Bitcoin como capa base</h2>
+        <div class="grid">
+          <div class="card-ng"><h3><i class="fa-solid fa-lock"></i> Inmutabilidad</h3><p>Bitcoin permite registrar hashes, transacciones e inscripciones con resistencia a modificación retroactiva.</p></div>
+          <div class="card-ng"><h3><i class="fa-solid fa-code-branch"></i> Taproot</h3><p>Habilita estructuras eficientes para scripts, inscripciones y operaciones más compactas sobre Bitcoin.</p></div>
+          <div class="card-ng"><h3><i class="fa-solid fa-gem"></i> Runes</h3><p>Protocolo para activos fungibles nativos de Bitcoin, utilizado por NGF•BTC•AM.</p></div>
+          <div class="card-ng"><h3><i class="fa-solid fa-fingerprint"></i> Ordinals</h3><p>Permite inscribir documentos, metadata, imágenes o certificados vinculados a proyectos específicos.</p></div>
+        </div>
+        <div class="notice danger"><strong>Precisión jurídica:</strong> Bitcoin no sustituye contratos, escrituras, registros de propiedad, licencias, KYC/AML, permisos, avalúos ni cumplimiento regulatorio. Bitcoin funciona como capa de prueba, no como fuente única de derechos legales.</div>
+      </div>
+    </section>
+
+    <section class="section" id="ngf">
+      <div class="container-wide">
+        <h2>NGF•BTC•AM — Utility Rune del ecosistema</h2>
+        <div class="grid-2">
+          <div class="card-ng gold">
+            <h3>Especificaciones principales</h3>
+            <div class="table-wrap"><table><tbody>
+              <tr><th>Activo</th><td>NGF•BTC•AM</td></tr>
+              <tr><th>Tipo</th><td>Bitcoin Rune</td></tr>
+              <tr><th>Función</th><td>Utility token / llave de acceso</td></tr>
+              <tr><th>Rune Number</th><td>#208,645</td></tr>
+              <tr><th>Rune ID</th><td>923867:120</td></tr>
+              <tr><th>Supply</th><td>5.930.000.000</td></tr>
+              <tr><th>Decimales</th><td>0</td></tr>
+              <tr><th>Mintable</th><td>No</td></tr>
+              <tr><th>Burnable</th><td>No</td></tr>
+            </tbody></table></div>
+          </div>
+          <div class="card-ng blue">
+            <h3>TXID de referencia</h3>
+            <p>El TXID debe ser verificado contra exploradores on-chain e indexadores Runes / Ordinals.</p>
+            <pre>4c0b2416f3dd122025f89a62d7ff265fcee8d00e0fabd874669617cf85437c82</pre>
+            <div class="notice"><strong>Pendiente crítico:</strong> normalizar la fecha real de inscripción entre sitio web, Whitepaper y exploradores.</div>
+          </div>
+        </div>
+        <h3>Funciones permitidas</h3>
+        <div><span class="pill">Acceso ecosistémico</span><span class="pill">Identidad funcional</span><span class="pill">Verificación de tenencia</span><span class="pill">Coordinación</span><span class="pill">Gobernanza consultiva</span><span class="pill">Acceso documental</span></div>
+        <h3>Funciones no permitidas</h3>
+        <div><span class="pill">No acciones</span><span class="pill">No deuda</span><span class="pill">No dividendos</span><span class="pill">No título inmobiliario</span><span class="pill">No promesa de retorno</span><span class="pill">No security por diseño declarado</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="ordinals">
+      <div class="container-wide">
+        <h2>Arquitectura de doble activo: la llave y el derecho</h2>
+        <div class="grid-2">
+          <div class="card-ng gold"><h3>NGF•BTC•AM — la llave</h3><p>Activo utilitario que se conserva en la wallet. Sirve para acceso, verificación y coordinación ecosistémica. No representa participación económica directa.</p></div>
+          <div class="card-ng blue"><h3>Ordinales de Proyecto — el derecho</h3><p>Instrumentos digitales por proyecto, vinculados a metadata, documentos legales, hashes, gobernanza y posibles derechos económicos definidos contractualmente.</p></div>
+        </div>
+        <div class="copybar mt-4"><strong>Plantilla de metadata de Ordinal de Proyecto</strong><button class="copy-btn" data-copy="ordinal-json">Copiar</button></div>
+        <pre id="ordinal-json">{
+  "schema": "NESGES-PROJECT-ORDINAL-v1",
+  "collection": "REFUGIO_SERIE_A",
+  "project": "Motel El Refugio",
+  "asset_type": "project_ordinal",
+  "rights_source": "external_legal_documents",
+  "document_hash_algorithm": "SHA-256",
+  "bitcoin_anchor_txid": null,
+  "kyc_aml_required": true,
+  "transfer_restrictions": "defined_by_project_regulation",
+  "legal_notice": "This Ordinal does not itself replace legal contracts, registries or compliance requirements."
+}</pre>
+      </div>
+    </section>
+
+    <section class="section" id="tokenomics">
+      <div class="container-wide">
+        <h2>Tokenomics NGF•BTC•AM</h2>
+        <div class="grid-2">
+          <div class="card-ng">
+            <div class="chart-panel"><canvas id="tokenomicsChart"></canvas></div>
+          </div>
+          <div class="card-ng">
+            <h3>Distribución base</h3>
+            <div class="table-wrap"><table><thead><tr><th>Categoría</th><th>%</th><th>Cantidad</th></tr></thead><tbody>
+              <tr><td>Reserva Estratégica</td><td>30%</td><td>1.779.000.000</td></tr>
+              <tr><td>Proyectos Productivos</td><td>25%</td><td>1.482.500.000</td></tr>
+              <tr><td>Sociales y Ambientales</td><td>15%</td><td>889.500.000</td></tr>
+              <tr><td>Alianzas y Gobernanza</td><td>10%</td><td>593.000.000</td></tr>
+              <tr><td>Tesorería Operativa</td><td>10%</td><td>593.000.000</td></tr>
+              <tr><td>Comunidad</td><td>5%</td><td>296.500.000</td></tr>
+              <tr><td>Equipo Fundador</td><td>4%</td><td>237.200.000</td></tr>
+              <tr><td>Fondo Operativo</td><td>1%</td><td>59.300.000</td></tr>
+            </tbody></table></div>
+          </div>
+        </div>
+        <div class="notice"><strong>Control requerido:</strong> publicar direcciones verificables, TXID, política de vesting, esquema multisig 3/5 y reporte de movimientos.</div>
+      </div>
+    </section>
+
+    <section class="section" id="rwa">
+      <div class="container-wide">
+        <h2>RWA — Activos reales y proyectos productivos</h2>
+        <p>La tokenización RWA debe iniciar con documentación, no con promesas. Cada activo requiere due diligence, SPV, metadata, hash, contrato, KYC/AML y análisis regulatorio cuando exista participación económica.</p>
+        <div class="grid">
+          <div class="card-ng"><h3>Motel El Refugio</h3><p>Proyecto piloto inmobiliario/comercial con potencial Serie A, flujos operativos y Ordinales de Proyecto.</p></div>
+          <div class="card-ng"><h3>CobytoHouse</h3><p>Centro de rescate animal e impacto social con trazabilidad de aportes y reportes verificables.</p></div>
+          <div class="card-ng"><h3>Cerca al Cielo</h3><p>Proyecto de fraccionamiento inmobiliario y valorización territorial.</p></div>
+          <div class="card-ng"><h3>Lomas de Montemar</h3><p>Activo vacacional/turístico con mejoras, renta y posible tokenización.</p></div>
+          <div class="card-ng"><h3>Espirulina Imbabura</h3><p>Biotecnología, microalgas, producción alimentaria y trazabilidad de lotes.</p></div>
+          <div class="card-ng"><h3>Reciclaje Cayambe</h3><p>Recolección comunitaria, tricimotos, economía circular e inclusión.</p></div>
+          <div class="card-ng"><h3>Pirolisis</h3><p>Transformación de residuos plásticos en aceite, gas y derivados energéticos.</p></div>
+          <div class="card-ng"><h3>JSRAInmob</h3><p>Vertical PropTech para análisis territorial y tokenización inmobiliaria.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="oregon">
+      <div class="container-wide">
+        <h2>RWA Oregon / Salem — Registro geoespacial preliminar</h2>
+        <div class="grid-2">
+          <div class="card-ng gold">
+            <h3>Coordenadas base</h3>
+            <pre>44.9217148,-123.0109558</pre>
+            <h3>SHA-256</h3>
+            <pre>be2e8a945d6f14809511b0a04d75b92d87fffd7f862054b288715cce1dff9acf</pre>
+          </div>
+          <div class="card-ng blue">
+            <h3>Estado correcto</h3>
+            <p>La ubicación debe tratarse como referencia geoespacial preliminar, no como identificación legal completa ni prueba de propiedad.</p>
+            <ul class="mini-list"><li>Falta tax lot / parcel number.</li><li>Falta verificación de título.</li><li>Falta zoning y floodplain.</li><li>Falta avalúo y due diligence legal.</li></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="reden">
+      <div class="container-wide">
+        <h2>RedenHousesEnergy — Ecosistema energético circular</h2>
+        <p>Vertical energética RWA desarrollada desde Ibarra, Imbabura, Ecuador, orientada a generación limpia, almacenamiento, respaldo circular y operación 24/7 proyectada bajo validación técnica.</p>
+        <div class="grid-3">
+          <div class="card-ng gold"><h3>Molten Salt Tower</h3><p>Almacenamiento térmico con sales 300–600°C, núcleo térmico y aislamiento. Alimenta ciclo Rankine.</p></div>
+          <div class="card-ng gold"><h3>Photovoltaic System</h3><p>Captación solar mediante diseño concéntrico, función heliostática y seguimiento automatizado.</p></div>
+          <div class="card-ng gold"><h3>Gravity Storage</h3><p>Almacenamiento mecánico por pesos y pozos verticales para estabilización rápida.</p></div>
+          <div class="card-ng blue"><h3>Brushless Motors</h3><p>Motores bidireccionales controlados electrónicamente para elevar, recuperar y accionar sistemas.</p></div>
+          <div class="card-ng blue"><h3>Reverse Pyrolysis</h3><p>Recuperación de residuos plásticos para aceite/gas sintético como respaldo energético interno.</p></div>
+          <div class="card-ng blue"><h3>Conversion Turbines</h3><p>Turbinas de vapor/gas para conversión final de energía térmica y respaldo operativo.</p></div>
+        </div>
+        <div class="notice danger"><strong>Estado técnico:</strong> proyecto en prefactibilidad/conceptual. Requiere ingeniería solar, geotécnica, térmica, ambiental, SCADA, CAPEX/OPEX, permisos energéticos y análisis legal antes de tokenización económica.</div>
+      </div>
+    </section>
+
+    <section class="section" id="exchange">
+      <div class="container-wide">
+        <h2>NESGESFinance Mempool Exchange</h2>
+        <p>Capa operativa pública orientada a verificación on-chain, vitrina de Ordinales, acceso de usuarios e intercambio descentralizado progresivo.</p>
+        <div class="grid-3">
+          <div class="card-ng"><h3>Verificación on-chain</h3><p>Consulta de TXID, Rune, Ordinal, inscripción, transferencia y metadata asociada.</p></div>
+          <div class="card-ng"><h3>Vitrina de Ordinals</h3><p>Presentación de proyectos tokenizados con metadata, hash documental y advertencias legales.</p></div>
+          <div class="card-ng"><h3>DEX progresivo</h3><p>Debe operar como no custodial, con PSBT/wallets compatibles y auditoría antes de declararse funcional completo.</p></div>
+        </div>
+        <div class="notice"><strong>Comunicación recomendada:</strong> usar “fase alfa / desarrollo progresivo” mientras no estén auditados backend, order book, liquidación, seguridad, KYC/AML y términos de servicio.</div>
+      </div>
+    </section>
+
+    <section class="section" id="dashboard">
+      <div class="container-wide">
+        <h2>Wallet Dashboard — demo institucional integrado</h2>
+        <div class="grid-2">
+          <div class="card-ng">
+            <div class="d-flex justify-content-between align-items-center gap-3 flex-wrap mb-3">
+              <h3 class="m-0"><i class="fa-solid fa-wallet"></i> Wallet Summary</h3>
+              <span class="status-pill" id="connectionStatus"><i class="fa-solid fa-circle-nodes"></i> Demo mode active</span>
+            </div>
+            <div class="grid-2">
+              <div class="card-ng"><div class="muted">Network</div><div class="kpi" id="networkValue">Bitcoin</div></div>
+              <div class="card-ng"><div class="muted">UTXOs</div><div class="kpi" id="utxoCount">35</div></div>
+              <div class="card-ng"><div class="muted">Balance BTC</div><div class="kpi" id="balanceBtc">12.50000000</div></div>
+              <div class="card-ng"><div class="muted">Balance USD</div><div class="kpi" id="balanceUsd">$856,250</div></div>
+            </div>
+            <div class="chart-panel mt-3"><canvas id="walletChart"></canvas></div>
+          </div>
+          <div class="card-ng">
+            <h3>Endpoints propuestos</h3>
+            <label class="muted">Summary endpoint</label><input class="form-control mb-2" value="/api/wallet/summary" />
+            <label class="muted">History endpoint</label><input class="form-control mb-2" value="/api/wallet/history" />
+            <label class="muted">BTC/USD endpoint</label><input class="form-control mb-3" value="/api/market/btc-usd" />
+            <div class="notice danger"><strong>Seguridad:</strong> no solicitar seed phrase, no manejar claves privadas en frontend, no firmar transacciones desde el dashboard y proteger endpoints con HTTPS, autenticación y rate limiting.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="github">
+      <div class="container-wide">
+        <h2>GitHub, publicación y paquete documental v2.2</h2>
+        <p>El siguiente paquete debe consolidar documentos, metadata, disclaimers, hashes, carpetas y páginas HTML para publicación en GitHub Pages.</p>
+        <div class="copybar"><strong>Estructura recomendada</strong><button class="copy-btn" data-copy="tree-code">Copiar</button></div>
+        <pre id="tree-code">NESGES_MASTER_DOCUMENTATION_v2_2/
+├── 00_INDEX/
+├── 01_WHITEPAPER/
+├── 02_INFORME_MAESTRO/
+├── 03_NGF_BTC_AM/
+├── 04_BITCOIN_TRANSACTION/
+├── 05_METADATA_JSON/
+├── 06_RWA_PROJECTS/
+├── 07_REDENHOUSESENERGY/
+├── 08_WEB_NESGESFINANCE_ORG/
+├── 09_EXCHANGE_MEMPOOL/
+├── 10_GITHUB_DEPLOYMENT/
+├── 11_DASHBOARDS/
+├── 12_LEGAL_DISCLAIMERS/
+├── 13_RISK_MATRIX/
+├── 14_HASHES/
+└── 15_RELEASE_PACKAGE/</pre>
+        <div class="copybar"><strong>Comandos base</strong><button class="copy-btn" data-copy="cmd-code">Copiar</button></div>
+        <pre id="cmd-code">cd ~
+mkdir -p NESGES_MASTER_DOCUMENTATION_v2_2/{00_INDEX,01_WHITEPAPER,02_INFORME_MAESTRO,03_NGF_BTC_AM,04_BITCOIN_TRANSACTION,05_METADATA_JSON,06_RWA_PROJECTS,07_REDENHOUSESENERGY,08_WEB_NESGESFINANCE_ORG,09_EXCHANGE_MEMPOOL,10_GITHUB_DEPLOYMENT,11_DASHBOARDS,12_LEGAL_DISCLAIMERS,13_RISK_MATRIX,14_HASHES,15_RELEASE_PACKAGE}
+find NESGES_MASTER_DOCUMENTATION_v2_2 -maxdepth 2 -type d | sort</pre>
+      </div>
+    </section>
+
+    <section class="section" id="riesgos">
+      <div class="container-wide">
+        <h2>Matriz de riesgos consolidada</h2>
+        <div class="accordion" id="riskAccordion">
+          <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#risk1">Riesgos regulatorios</button></h2><div id="risk1" class="accordion-collapse collapse show" data-bs-parent="#riskAccordion"><div class="accordion-body"><p>Security classification, oferta pública no registrada, broker-dealer, ATS, KYC/AML insuficiente, venta transfronteriza, fiscalidad y lenguaje de promesa de retorno.</p></div></div></div>
+          <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#risk2">Riesgos técnicos</button></h2><div id="risk2" class="accordion-collapse collapse" data-bs-parent="#riskAccordion"><div class="accordion-body"><p>Metadata inválida, discrepancias de fecha, dependencia de indexadores, errores frontend, exposición xpub, pérdida de claves, fallas multisig y falta de auditoría.</p></div></div></div>
+          <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#risk3">Riesgos RWA</button></h2><div id="risk3" class="accordion-collapse collapse" data-bs-parent="#riskAccordion"><div class="accordion-body"><p>Título no verificado, zoning incorrecto, floodplain, avalúo insuficiente, permisos, impuestos, litigios, liquidez secundaria y ausencia de seguros.</p></div></div></div>
+          <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#risk4">Riesgos RedenHousesEnergy</button></h2><div id="risk4" class="accordion-collapse collapse" data-bs-parent="#riskAccordion"><div class="accordion-body"><p>CAPEX alto, integración industrial compleja, sales fundidas, pozos gravitacionales, emisiones de pirólisis, permisos energéticos, SCADA, interconexión y mantenimiento.</p></div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="roadmap">
+      <div class="container-wide">
+        <h2>Roadmap 2025–2030</h2>
+        <div class="timeline">
+          <div class="tl-item"><h3>2025 — Fase fundacional</h3><p>Arquitectura de doble activo, emisión NGF•BTC•AM, constitución institucional y Whitepaper.</p></div>
+          <div class="tl-item"><h3>2026 — Expansión</h3><p>Proyecto piloto Serie A, primera emisión de Ordinales, verificación on-chain, Exchange progresivo y alianzas.</p></div>
+          <div class="tl-item"><h3>2027–2028 — Consolidación</h3><p>Diversificación de proyectos, expansión Latam, auditorías, gobernanza híbrida y métricas de impacto.</p></div>
+          <div class="tl-item"><h3>2029–2030 — Escala global</h3><p>Internacionalización, DAO progresiva, interoperabilidad, fondo de impacto y modelo replicable.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="legal">
+      <div class="container-wide">
+        <h2>Declaración legal maestra</h2>
+        <div class="notice danger">
+          <p><strong>NGF•BTC•AM</strong> está diseñado como activo utilitario para acceso, verificación, coordinación y operación interna del ecosistema. No representa acciones, deuda, participación societaria, título de propiedad, dividendos, promesa de rendimiento ni garantía de retorno.</p>
+          <p>Cualquier Ordinal de Proyecto que represente derechos económicos, participación en flujos, gobernanza patrimonial o expectativa de retorno requiere documentos legales independientes, KYC/AML, análisis fiscal y revisión regulatoria aplicable.</p>
+          <p>Bitcoin, Runes, Ordinals, hashes, OP_RETURN, dashboards, exchange o metadata no sustituyen contratos, escrituras, registros públicos, permisos, avalúos ni cumplimiento legal.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container-wide">
+      <p>NESGESFinance Ecosystem S.A.S. & LLC — Informe Maestro HTML Unificado v2.2</p>
+      <p>Bitcoin • Runes • Ordinals • RWA • RedenHousesEnergy • Tokenización con Propósito</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    "use strict";
+    function fmtUSD(value) { return value.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }); }
+    const tokenomicsCtx = document.getElementById("tokenomicsChart");
+    if (tokenomicsCtx && window.Chart) {
+      new Chart(tokenomicsCtx, {
+        type: "doughnut",
+        data: {
+          labels: ["Reserva", "Proyectos", "Social/Amb", "Alianzas", "Tesorería", "Comunidad", "Equipo", "Operativo"],
+          datasets: [{ data: [30,25,15,10,10,5,4,1] }]
+        },
+        options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { labels: { color: "#f4f7ff" } } } }
+      });
+    }
+    const walletCtx = document.getElementById("walletChart");
+    if (walletCtx && window.Chart) {
+      const labels = Array.from({length: 30}, (_, i) => `D${i+1}`);
+      let base = 12.5;
+      const data = labels.map(() => { base += (Math.random() - 0.48) * 0.16; return Math.max(0, base).toFixed(4); });
+      new Chart(walletCtx, {
+        type: "line",
+        data: { labels, datasets: [{ label: "BTC balance demo", data, tension: .35, fill: false }] },
+        options: { responsive: true, maintainAspectRatio: false, scales: { x: { ticks: { color: "#aab3c7" }, grid: { color: "rgba(255,255,255,.06)" } }, y: { ticks: { color: "#aab3c7" }, grid: { color: "rgba(255,255,255,.06)" } } }, plugins: { legend: { labels: { color: "#f4f7ff" } } } }
+      });
+      const last = Number(data[data.length - 1]);
+      document.getElementById("balanceBtc").textContent = last.toFixed(8);
+      document.getElementById("balanceUsd").textContent = fmtUSD(last * 68500);
+      document.getElementById("utxoCount").textContent = String(32 + Math.floor(Math.random() * 8));
+    }
+    document.querySelectorAll(".copy-btn").forEach(btn => {
+      btn.addEventListener("click", async () => {
+        const id = btn.getAttribute("data-copy");
+        const el = document.getElementById(id);
+        if (!el) return;
+        try { await navigator.clipboard.writeText(el.textContent); btn.textContent = "Copiado"; setTimeout(() => btn.textContent = "Copiar", 1200); }
+        catch (e) { btn.textContent = "No copiado"; setTimeout(() => btn.textContent = "Copiar", 1200); }
+      });
+    });
+  </script>
+</body>
+</html>
