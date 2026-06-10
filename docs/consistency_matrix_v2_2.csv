@@ -1,0 +1,15 @@
+field,source_1,source_2,source_3,status,action_required
+asset_name,NGF•BTC•AM,NGF·BTC·AM,NGF-BTC-AM,requires_standardization,use NGF•BTC•AM as display and NGF-BTC-AM as ASCII
+txid,4c0b2416f3dd122025f89a62d7ff265fcee8d00e0fabd874669617cf85437c82,4c0b...7c82,,consistent,verify on-chain
+rune_number,208645,#208645,,consistent,verify with Runes indexer
+rune_id,923867:120,923867:120,,consistent,verify with explorer
+supply,5930000000,5.930.000.000,,consistent,verify with Runestone
+decimals,0,0,,consistent,no action
+mintable,false,No,,consistent,no action
+burnable,false,No,,consistent,no action
+inscription_date,2025-11-16,2024-12-15,,conflict,verify with mempool and runes explorer
+classification,utility token,asset of ecosystem,,consistent,add legal disclaimer
+project_ordinals,rights per project,securities digitales,,requires_precision,use potential regulated instrument when economic rights exist
+dex_status,operational,alpha/development,,requires_precision,mark as alpha until audited
+rwa_oregon_status,preliminary geolocation,real estate location,,consistent,do not present as ownership
+redenhousesenergy_availability,>98 percent projected,24/7,,requires_validation,label as projected pending engineering validation

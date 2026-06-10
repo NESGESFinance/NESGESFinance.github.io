@@ -1,0 +1,59 @@
+{
+  "schema": "NESGES-NGF-BTC-AM-RUNE-v1",
+  "document_type": "canonical_asset_metadata",
+  "project": "NESGESFinance Ecosystem",
+  "asset": {
+    "display_name": "NGF•BTC•AM",
+    "ascii_name": "NGF-BTC-AM",
+    "rune_name": "NGF•BTC•AM",
+    "asset_type": "Bitcoin Rune",
+    "functional_classification": "utility_token",
+    "network": "Bitcoin Mainnet",
+    "protocol": "Runes",
+    "rune_number": 208645,
+    "rune_id": "923867:120",
+    "supply": "5930000000",
+    "decimals": 0,
+    "mintable": false,
+    "burnable": false
+  },
+  "issuer": {
+    "name": "NESGESFinance Ecosystem S.A.S. & LLC",
+    "ecuador_entity": "NESGESFINANCE ECOSYSTEM S.A.S. Sociedad de Beneficio e Interés Colectivo",
+    "us_entity": "NESGESFinance Ecosystem S.A.S. LLC"
+  },
+  "bitcoin_reference": {
+    "txid": "4c0b2416f3dd122025f89a62d7ff265fcee8d00e0fabd874669617cf85437c82",
+    "block_height": 923867,
+    "timestamp_status": "pending_final_on_chain_normalization",
+    "verification_sources": [
+      "mempool.space",
+      "uniscan",
+      "ordinals_indexer",
+      "runes_indexer"
+    ]
+  },
+  "utility_scope": [
+    "ecosystem_access",
+    "identity_verification",
+    "project_access_eligibility",
+    "documentation_access",
+    "governance_consultation",
+    "platform_coordination"
+  ],
+  "notices": {
+    "not_security": true,
+    "not_equity": true,
+    "not_debt": true,
+    "not_real_estate_title": true,
+    "not_dividend_right": true,
+    "not_return_guarantee": true,
+    "legal_notice": "NGF•BTC•AM is designed as a utility asset for the NESGESFinance Ecosystem. It does not represent equity, debt, real estate title, dividends, guaranteed yield, or direct ownership of project assets."
+  },
+  "versioning": {
+    "metadata_version": "1.0.0",
+    "status": "draft_for_verification",
+    "created_date": "2026-06-10",
+    "created_for": "NESGESFinance Master Documentation v2.2"
+  }
+}
