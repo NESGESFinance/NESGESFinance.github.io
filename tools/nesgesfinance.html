@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decodificador Base58 a Hexadecimal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h1 {
+            font-size: 24px;
+            color: #222;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-top: 5px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: monospace;
+            resize: vertical;
+        }
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result-box {
+            background-color: #e9ecef;
+            border-left: 5px solid #28a745;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Decodificador Base58 a Hexadecimal</h1>
+    <p>Introduce una cadena en Base58 para obtener su representación hexadecimal original.</p>
+    
+    <label for="inputBase58">Cadena Base58:</label>
+    <textarea id="inputBase58" placeholder="Pega aquí tu cadena Base58..."></textarea>
+    
+    <button onclick="procesarDecodificacion()">Decodificar</button>
+    
+    <label for="outputHex">Resultado Hexadecimal:</label>
+    <textarea id="outputHex" class="result-box" readonly placeholder="El resultado aparecerá aquí..."></textarea>
+</div>
+
+<script>
+    // Alfabeto estándar de Base58 (utilizado en Bitcoin)
+    const ALFABETO_B58 = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz";
+    
+    // Crear un mapa para búsquedas rápidas de índices
+    const MAPA_B58 = {};
+    for (let i = 0; i < ALFABETO_B58.length; i++) {
+        MAPA_B58[ALFABETO_B58[i]] = i;
+    }
+
+    /**
+     * Decodifica una cadena Base58 y devuelve un Uint8Array con los bytes.
+     */
+    function decodificarBase58(cadena) {
+        if (cadena.length === 0) return new Uint8Array(0);
+
+        let bytes = [0];
+        
+        for (let i = 0; i < cadena.length; i++) {
+            let caracter = cadena[i];
+            if (!(caracter in MAPA_B58)) {
+                throw new Error("Carácter Base58 no válido: " + caracter);
+            }
+            
+            let valor = MAPA_B58[caracter];
+            let acarreo = valor;
+            
+            for (let j = 0; j < bytes.length; j++) {
+                let actual = bytes[j] * 58 + acarreo;
+                bytes[j] = actual & 0xff;
+                acarreo = actual >> 8;
+            }
+            
+            while (acarreo > 0) {
+                bytes.push(acarreo & 0xff);
+                acarreo >>= 8;
+            }
+        }
+        
+        // Conservar los ceros a la izquierda (representados por '1' en Base58)
+        for (let k = 0; k < cadena.length && cadena[k] === '1'; k++) {
+            bytes.push(0);
+        }
+        
+        return new Uint8Array(bytes.reverse());
+    }
+
+    /**
+     * Convierte un Uint8Array a una cadena hexadecimal.
+     */
+    function bytesAHex(bytes) {
+        return Array.from(bytes)
+            .map(b => b.toString(16).padStart(2, '0'))
+            .join('');
+    }
+
+    /**
+     * Función principal vinculada al botón de la interfaz.
+     */
+    function procesarDecodificacion() {
+        const input = document.getElementById("inputBase58").value.trim();
+        const output = document.getElementById("outputHex");
+        
+        if (!input) {
+            alert("Por favor, introduce una cadena Base58 válida.");
+            return;
+        }
+        
+        try {
+            const bytesDecodificados = decodificarBase58(input);
+            const resultadoHex = bytesAHex(bytesDecodificados);
+            output.value = resultadoHex;
+        } catch (error) {
+            alert("Error al decodificar: " + error.message);
+            output.value = "";
+        }
+    }
+</script>
+
+</body>
+</html>
