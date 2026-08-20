@@ -1,0 +1,20 @@
+{
+  "version": "2026.1.0",
+  "model": "Hybrid DAO + Corporate S.A.S.",
+  "quorum_percent": 66,
+  "voting_rights": [
+    "strategic",
+    "proposals",
+    "allocation"
+  ],
+  "custody": {
+    "type": "multisig",
+    "scheme": "3-of-5",
+    "rotation": "semiannual"
+  },
+  "audit": {
+    "internal": "monthly",
+    "external": "annual_planned"
+  },
+  "disclaimer": "NGF•BTC•AM is a utility asset, not a security."
+}
