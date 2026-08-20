@@ -1,0 +1,47 @@
+{
+  "version": "2026.1.0",
+  "asset": "NGF•BTC•AM",
+  "total_supply": 5930000000,
+  "decimals": 0,
+  "mintable": false,
+  "burnable": false,
+  "model": "fixed_non_inflationary",
+  "allocations": [
+    {
+      "category": "liquidity_reserve",
+      "percent": 30,
+      "amount": 1779000000
+    },
+    {
+      "category": "productive_projects",
+      "percent": 25,
+      "amount": 1482500000
+    },
+    {
+      "category": "social_environmental",
+      "percent": 15,
+      "amount": 889500000
+    },
+    {
+      "category": "governance_alliances",
+      "percent": 15,
+      "amount": 889500000
+    },
+    {
+      "category": "treasury",
+      "percent": 10,
+      "amount": 593000000
+    },
+    {
+      "category": "team_advisors",
+      "percent": 4,
+      "amount": 237200000
+    },
+    {
+      "category": "operating_expenses",
+      "percent": 1,
+      "amount": 59300000
+    }
+  ],
+  "disclaimer": "Utility asset only. Not a security."
+}

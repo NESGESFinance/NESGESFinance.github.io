@@ -1,27 +1,38 @@
-# NESGESFinance Ecosystem
+# NESGESFinance Institutional Repository
 
-Infrastructure for Bitcoin-based RWA tokenization, NGF•BTC•AM utility asset, Project Ordinals, verifiable documentation, circular economy and real-world projects.
+Repositorio oficial de documentación institucional y técnica de **NESGESFinance**, actualizado bajo el **Whitepaper Institucional 2026**.
 
-## Core Principles
+## Visión 2026
+Construir infraestructura Bitcoin-first para tokenización responsable de activos y proyectos del mundo real (RWA), con trazabilidad pública, gobernanza híbrida y registro documental permanente.
 
-- Bitcoin-first verification
-- Utility vs. project-right separation
-- Legal-documentary clarity
-- Real-world asset traceability
-- Responsible tokenization
-- Progressive decentralization
-- Social and environmental impact
+## Principios Institucionales
+- Transparencia radical (Open Ledger)
+- Persistencia documental (Perpetual Record)
+- Separación clara entre utilidad y valores
+- Gobernanza verificable y progresiva
+- Impacto productivo, social y ambiental
 
-## Main Components
+## Activo Institucional: NGF•BTC•AM
+- Total Supply: **5,930,000,000**
+- Decimals: **0**
+- Mintable: **No**
+- Burnable: **No**
+- Modelo: **Fixed, non-inflationary**
+- Rune ID: **923867:120**
+- Red: **Bitcoin Mainnet**
+- Protocolo: **Runes v1.0 + Taproot Assets + Lightning L2**
 
-- NGF•BTC•AM: Bitcoin Rune utility asset
-- Project Ordinals: project-specific digital instruments
-- RWA documentation: real-world asset files
-- Bitcoin anchoring: hashes and TXID verification
-- GitHub: version control and transparency
-- NESGESFinance.org: institutional website
-- NESGESFinance Mempool Exchange: on-chain verification and progressive DEX interface
+## Estructura de Documentación
+- [`INDEX.md`](INDEX.md) Índice central
+- [`CHANGELOG.md`](CHANGELOG.md) Historial de versiones
+- [`GOVERNANCE.md`](GOVERNANCE.md) Gobernanza raíz
+- [`TOKENOMICS.md`](TOKENOMICS.md) Tokenomics raíz
+- [`LEGAL.md`](LEGAL.md) Marco legal y disclaimers
+- [`docs/`](docs/) Documentación técnica 01-10
+- [`data/`](data/) Datos estructurados (JSON)
 
-## Legal Notice
+## Estándar
+Toda la documentación sigue **NESGESFinance Corporate Registry 11-2025**.
 
-NGF•BTC•AM is a utility asset and does not represent equity, debt, real estate title, dividends or guaranteed returns. Project Ordinals require independent legal documentation and may be subject to securities regulations when linked to economic rights.
+## Aviso Legal
+**NGF•BTC•AM es un activo utilitario y no constituye un security, valor negociable, acción, deuda ni promesa de rendimiento.**

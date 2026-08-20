@@ -1,0 +1,42 @@
+{
+  "version": "2026.1.0",
+  "network": "Bitcoin Mainnet",
+  "asset": {
+    "name": "NGF•BTC•AM",
+    "rune_id": "923867:120",
+    "protocols": [
+      "Runes v1.0",
+      "Taproot Assets",
+      "Lightning L2"
+    ]
+  },
+  "proof_of_production": {
+    "validation": [
+      "on_chain_operations",
+      "treasury_flows",
+      "liquidity_cycles"
+    ],
+    "source": "Bitcoin Mempool",
+    "algorithm": "SHA-256",
+    "indexer": "NESGESFinance Internal Corporate Indexer"
+  },
+  "oracles": {
+    "rwa_oracle": "active",
+    "audit_oracle": "active",
+    "sync_interval_days": 30,
+    "data_sources": [
+      "Bitcoin Mempool",
+      "Internal Indexer",
+      "RWA Registry"
+    ]
+  },
+  "transparency": {
+    "open_ledger": true,
+    "perpetual_record": true,
+    "explorers": [
+      "https://mempool.space",
+      "https://uniscan.cc/runes/detail/NGF•BTC•AM"
+    ]
+  },
+  "disclaimer": "NGF•BTC•AM is utility-based and not a security."
+}
